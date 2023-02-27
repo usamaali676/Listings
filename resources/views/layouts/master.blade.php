@@ -10,7 +10,7 @@
 <body class="dark-header_">
 
     <!-- Wrapper -->
-<div id="wrapper">
+<div id="main-wrapper">
 
     <!-- Header Container
     ================================================== -->
