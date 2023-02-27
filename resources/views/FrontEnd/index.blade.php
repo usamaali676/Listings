@@ -34,30 +34,26 @@
                 <div class="Goodup-search-shadow">
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active" id="placesseach" role="tabpanel" aria-labelledby="placesseach-tab">
-                            <form class="main-search-wrap fl-wrap">
+                            <form action="{{route('search')}}" method="GET" class="main-search-wrap fl-wrap">
                                 <div class="main-search-item">
                                     <span class="search-tag"><i class="lni lni-keyboard"></i></span>
-                                    <input type="text" class="form-control radius" placeholder="What are you looking for?" />
+                                    <input type="text" name="search" class="form-control radius" placeholder="What are you looking for?" />
                                 </div>
                                 <div class="main-search-item">
                                     <span class="search-tag"><i class="lni lni-map-marker"></i></span>
-                                    <input type="text" class="form-control" placeholder="San Francisco, CA" />
+                                    <input type="text" name="location" class="form-control" placeholder="Location" />
                                 </div>
                                 <div class="main-search-item">
                                     <span class="search-tag"><i class="lni lni-briefcase"></i></span>
-                                    <select class="form-control">
+                                    <select class="form-control" name="category">
                                         <option value="">Choose Category</option>
-                                        <option value="1">Restaurants</option>
-                                        <option value="2">Information Technology</option>
-                                        <option value="3">Hotel Booking</option>
-                                        <option value="4">Cafe & Night Bars</option>
-                                        <option value="5">Healthcare/Pharma</option>
-                                        <option value="6">Wedding & Marriage</option>
-                                        <option value="7">Finance/Insurance</option>
+                                        @foreach ($bcat as $cat)
+                                            <option value="{{$cat->name}}">{{$cat->name}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="main-search-button">
-                                    <button class="btn full-width theme-bg text-white" type="button">Search</button>
+                                    <button  type="submit" class="btn full-width theme-bg text-white" type="button">Search</button>
                                 </div>
                             </form>
                         </div>
@@ -108,7 +104,7 @@
 
                                             </div>
                                             <div class="Goodup-grid-thumb">
-                                                <a href="single-listing-detail-2.html" class="d-block text-center m-auto"><img
+                                                <a href="{{route('business.single')}}/{{$item->slug}}" class="d-block text-center m-auto"><img
                                                         src="{{asset('business/feature')}}/{{$item->featureImage}}" class="img-fluid" alt=""></a>
                                             </div>
                                             {{-- <div class="Goodup-rating overlay">
@@ -127,21 +123,15 @@
                                         </div>
                                         <div class="Goodup-grid-fl-wrap">
                                             <div class="Goodup-caption px-3 py-2">
-                                                <div class="Goodup-author"><a href="author-detail.html"><img src="{{asset('business/logo')}}/{{$item->logo}}"
+                                                <div class="Goodup-author"><a href="{{route('business.single')}}/{{$item->slug}}"><img src="{{asset('business/logo')}}/{{$item->logo}}"
                                                             class="img-fluid circle" alt=""></a></div>
-                                                <h4 class="mb-0 ft-medium medium"><a href="single-listing-detail-2.html" class="text-dark fs-md">{{$item->name}}</a></h4>
+                                                <h4 class="mb-0 ft-medium medium"><a href="{{route('business.single')}}/{{$item->slug}}" class="text-dark fs-md">{{$item->name}}</a></h4>
                                                 <div class="Goodup-location"><i class="fas fa-map-marker-alt me-1 theme-cl"></i>{{$item->address}}</div>
                                                 <div class="Goodup-middle-caption mt-3">
                                                     <p>{{Str::limit($item->description, 50)}}</p>
                                                 </div>
                                             </div>
                                             <div class="Goodup-grid-footer py-2 px-3">
-                                                {{-- <div class="Goodup-ft-first">
-                                                    <a href="half-map-search-2.html" class="Goodup-cats-wrap">
-                                                        <div class="cats-ico bg-2"><i class="lni lni-slim"></i></div><span class="cats-title">Beauty
-                                                            &amp; Makeup</span>
-                                                    </a>
-                                                </div> --}}
                                                 <div class="Goodup-ft-last">
                                                     <div class="Goodup-inline">
                                                         <div class="Goodup-bookmark-btn"><a href="mailto:{{$item->email}}"><i

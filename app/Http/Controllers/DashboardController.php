@@ -79,14 +79,13 @@ class DashboardController extends Controller
         // Search in the title and body columns from the posts table
         $searchbusiness = Business::query()
 
-
              ->where('name', 'LIKE', "%{$search}%")
              ->where('address', 'LIKE', "{$location}")
              ->orwhereHas('cat', fn ($query) => $query->where('name',  'LIKE', "%{$catsearch}%"))
             ->get();
         // Return the search view with the resluts compacted
         $businessCategory = BusinessCategory::all();
-        return view("FrontEnd.search", compact('searchbusiness', 'businessCategory'));
+        return view("FrontEnd.search", compact('searchbusiness','businessCategory','search','catsearch','location'));
     }
     public function SingleCategory($slug)
     {

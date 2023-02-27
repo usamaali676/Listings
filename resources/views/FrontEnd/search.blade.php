@@ -1,229 +1,229 @@
 @extends('layouts.master')
 @section('front')
 
+<!-- ============================ Search Tag & Filter Start ================================== -->
+{{-- <section class="cats-filters py-3">
+    <div class="container">
+        <div class="row justify-content-between align-items-center">
 
-<!-- Titlebar
-================================================== -->
-<div id="titlebar" class="gradient">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-12">
+                <div class="Goodup-all-drp">
 
-				<h2>Search</h2>
-
-				<!-- Breadcrumbs -->
-				<nav id="breadcrumbs">
-					<ul>
-						<li><a href="{{route('front')}}">Home</a></li>
-						<li>Listings</li>
-					</ul>
-				</nav>
-
-			</div>
-		</div>
-	</div>
-</div>
-
-
-<!-- Content
-================================================== -->
-<div class="container">
-	<div class="row">
-
-        		<!-- Search -->
-                {{-- <form action="{{route('search')}}" method="GET">
-                    <div class="col-md-12">
-                        <div class="main-search-input gray-style margin-top-0 margin-bottom-10">
-
-                            <div class="main-search-input-item">
-                                <input type="text" name="search" placeholder="What are you looking for?" value=""/>
-                            </div>
-
-                            <div class="main-search-input-item location">
-                                <div id="autocomplete-container">
-                                    <input id="autocomplete-input" type="text" name="location" placeholder="Location">
-                                </div>
-                                <a href="#"><i class="fa fa-map-marker"></i></a>
-                            </div>
-
-                            <div class="main-search-input-item">
-                                <select data-placeholder="All Categories" class="chosen-select" name="category">
-                                    <option>All Categories</option>
-                                    @foreach ($businessCategory as $cat)
-                                    <option>{{$cat->name}}</option>
-                                    @endforeach
-
-
-                                </select>
-                            </div>
-
-                            <button class="button">Search</button>
+                    <div class="Goodup-single-drp small">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Restaurants</button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#"><img src="assets/img/icons/fast-delivery.png" class="img-fluid" width="20" alt="" />Delivery</a></li>
+                                <li><a class="dropdown-item" href="#"><img src="assets/img/icons/burger.png" class="img-fluid" width="20" alt="" />Burgers</a></li>
+                                <li><a class="dropdown-item" href="#"><img src="assets/img/icons/booking.png" class="img-fluid" width="20" alt="" />Reservations</a></li>
+                                <li><a class="dropdown-item" href="#"><img src="assets/img/icons/house.png" class="img-fluid" width="20" alt="" />Japanese</a></li>
+                                <li><a class="dropdown-item" href="#"><img src="assets/img/icons/chinese-food.png" class="img-fluid" width="20" alt="" />Chinese</a></li>
+                                <li><a class="dropdown-item" href="#"><img src="assets/img/icons/mexican-hat.png" class="img-fluid" width="20" alt="" />Mekician</a></li>
+                                <li><a class="dropdown-item" href="#"><img src="assets/img/icons/dish.png" class="img-fluid" width="20" alt="" />Italian</a></li>
+                                <li><a class="dropdown-item" href="#"><img src="assets/img/icons/tom-yum.png" class="img-fluid" width="20" alt="" />Thai</a></li>
+                            </ul>
                         </div>
                     </div>
-                </form> --}}
-                    <!-- Search Section / End -->
+
+                    <div class="Goodup-single-drp small">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Home Services</button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#"><img src="assets/img/icons/hammer.png" class="img-fluid" width="20" alt="" />Contractors</a></li>
+                                <li><a class="dropdown-item" href="#"><img src="assets/img/icons/coconut-tree.png" class="img-fluid" width="20" alt="" />Landscaping</a></li>
+                                <li><a class="dropdown-item" href="#"><img src="assets/img/icons/broken-cable.png" class="img-fluid" width="20" alt="" />Electricians</a></li>
+                                <li><a class="dropdown-item" href="#"><img src="assets/img/icons/padlock.png" class="img-fluid" width="20" alt="" />Locksmiths</a></li>
+                                <li><a class="dropdown-item" href="#"><img src="assets/img/icons/basket.png" class="img-fluid" width="20" alt="" />Home Cleaning</a></li>
+                                <li><a class="dropdown-item" href="#"><img src="assets/img/icons/delivery-truck.png" class="img-fluid" width="20" alt="" />Movers</a></li>
+                                <li><a class="dropdown-item" href="#"><img src="assets/img/icons/home.png" class="img-fluid" width="20" alt="" />HVAC</a></li>
+                                <li><a class="dropdown-item" href="#"><img src="assets/img/icons/plumbering.png" class="img-fluid" width="20" alt="" />Plumbers</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="Goodup-single-drp small">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Auto Services</button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#"><img src="assets/img/icons/wrench.png" class="img-fluid" width="20" alt="" />Auto Repairs</a></li>
+                                <li><a class="dropdown-item" href="#"><img src="assets/img/icons/rental-car.png" class="img-fluid" width="20" alt="" />Car Dealers</a></li>
+                                <li><a class="dropdown-item" href="#"><img src="assets/img/icons/sketch.png" class="img-fluid" width="20" alt="" />Auto Detailing</a></li>
+                                <li><a class="dropdown-item" href="#"><img src="assets/img/icons/oil.png" class="img-fluid" width="20" alt="" />Oil Change</a></li>
+                                <li><a class="dropdown-item" href="#"><img src="assets/img/icons/shopping-bag.png" class="img-fluid" width="20" alt="" />Body Shops</a></li>
+                                <li><a class="dropdown-item" href="#"><img src="assets/img/icons/parking.png" class="img-fluid" width="20" alt="" />Parking</a></li>
+                                <li><a class="dropdown-item" href="#"><img src="assets/img/icons/car-wash.png" class="img-fluid" width="20" alt="" />Car Wash</a></li>
+                                <li><a class="dropdown-item" href="#"><img src="assets/img/icons/tow-truck.png" class="img-fluid" width="20" alt="" />Towing</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="Goodup-single-drp small">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">More</button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#"><img src="assets/img/icons/towel-hanger.png" class="img-fluid" width="20" alt="" />Dry Cleaning</a></li>
+                                <li><a class="dropdown-item" href="#"><img src="assets/img/icons/salon.png" class="img-fluid" width="20" alt="" />Hair salons</a></li>
+                                <li><a class="dropdown-item" href="#"><img src="assets/img/icons/smartphone.png" class="img-fluid" width="20" alt="" />Phone Repair</a></li>
+                                <li><a class="dropdown-item" href="#"><img src="assets/img/icons/weights.png" class="img-fluid" width="20" alt="" />Gyms</a></li>
+                                <li><a class="dropdown-item" href="#"><img src="assets/img/icons/cocktail.png" class="img-fluid" width="20" alt="" />Bars & cafe</a></li>
+                                <li><a class="dropdown-item" href="#"><img src="assets/img/icons/spa.png" class="img-fluid" width="20" alt="" />Massage</a></li>
+                                <li><a class="dropdown-item" href="#"><img src="assets/img/icons/poinsettia.png" class="img-fluid" width="20" alt="" />Nightlife</a></li>
+                                <li><a class="dropdown-item" href="#"><img src="assets/img/icons/online-shopping.png" class="img-fluid" width="20" alt="" />Shopping</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="Goodup-single-drp small">
+                        <div class="btn-group">
+                            <button type="button" class="btn bg-dark text-light">Update</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section> --}}
+<div class="clearfix"></div>
+<!-- ============================ Search Tag & Filter End ================================== -->
 
 
-		<div class="col-md-12">
+<!-- ============================ Main Section Start ================================== -->
+<section class="gray py-5">
+    <div class="container">
+        <div class="row">
 
-			<!-- Sorting - Filtering Section -->
-			<div class="row margin-bottom-25 margin-top-30">
+            <!-- Item Wrap Start -->
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
 
-				{{-- <div class="col-md-6">
-					<!-- Layout Switcher -->
-					<div class="layout-switcher">
-						<a href="listings-grid-full-width.html" class="grid"><i class="fa fa-th"></i></a>
-						<a href="#" class="list active"><i class="fa fa-align-justify"></i></a>
-					</div>
-				</div> --}}
+                <!-- row -->
+                <div class="row justify-content-center g-2">
 
-				{{-- <div class="col-md-6">
-					<div class="fullwidth-filters">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-12">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item"><a href="#">Search</a></li>
+                                {{-- <li class="breadcrumb-item active" aria-current="page">Restaurants</li> --}}
+                            </ol>
+                        </nav>
+                        <div class="">
+                            @if (isset($search))
+                            <h2 class="ft-bold">{!! $search !!}</h2>
+                            @endif
+                            @if (isset($catsearch))
+                            <h2 class="ft-bold">Category: {!! $catsearch !!}</h2>
+                            @endif
+                            @if (isset($location))
+                            <h2 class="ft-bold">Location: {!! $location !!}</h2>
+                            @endif
 
-						<!-- Panel Dropdown -->
-						<div class="panel-dropdown wide float-right">
-							<a href="#">More Filters</a>
-							<div class="panel-dropdown-content checkboxes">
+                        </div>
+                    </div>
 
-								<!-- Checkboxes -->
-								<div class="row">
-									<div class="col-md-6">
-										<input id="check-a" type="checkbox" name="check">
-										<label for="check-a">Elevator in building</label>
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-12">
+                        <div class="d-block grouping-listings">
+                            <div class="d-block grouping-listings-title">
+                                <h5 class="ft-medium mb-3">Sponsored Results</h5>
+                            </div>
+                            @foreach ($searchbusiness as $item)
+                            <!-- Single Item -->
+                            <div class="grouping-listings-single">
+                                <div class="vrt-list-wrap">
 
-										<input id="check-b" type="checkbox" name="check">
-										<label for="check-b">Friendly workspace</label>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="vrt-list-thumb">
+                                                    <div class="vrt-list-thumb-figure" style="height: 220px; width: 600px;">
+                                                        <img src="{{('business/feature')}}/{{$item->featureImage}}" class="img-fluid" alt="" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="vrt-list-content">
+                                                    <h4 class="mb-0 ft-medium"><a href="listing-search-v1.html" class="text-dark fs-md">{{$item->name}}<span class="verified-badge"><i class="fas fa-check-circle"></i></span></a></h4>
+                                                    <div class="vrt-list-features mt-2 mb-2">
+                                                        <ul>
+                                                            @foreach ($item->cat as $list)
+                                                            <li><a href="javascript:void(0);">{{$list->name}}</a></li>
+                                                            @endforeach
 
-										<input id="check-c" type="checkbox" name="check">
-										<label for="check-c">Instant Book</label>
+                                                        </ul>
+                                                    </div>
+                                                    {{-- <div class="vrt-list-sts">
+                                                        <p class="vrt-qgunke"><span class="ft-bold d14ixh">Closed</span> until 5:00 PM</p>
+                                                    </div> --}}
 
-										<input id="check-d" type="checkbox" name="check">
-										<label for="check-d">Wireless Internet</label>
-									</div>
+                                                    <div class="vrt-list-desc">
+                                                        <p class="vrt-qgunke">{{Str::limit($item->description , 100)}}</p>
+                                                    </div>
 
-									<div class="col-md-6">
-										<input id="check-e" type="checkbox" name="check" >
-										<label for="check-e">Free parking on premises</label>
+                                                    <div class="vrt-list-amenties py-2">
+                                                        <i class="fas fa-map" style="color: #F41B3B"></i>&nbsp;&nbsp;<span>{{$item->address}}</span><br>
+                                                    </div>
+                                                    <div class="vrt-list-amenties">
+                                                        <i class="fas fa-phone" style="color: #F41B3B"></i>&nbsp;&nbsp;<span>{{$item->phone}}</span><br>
+                                                    </div>
+                                                    <div class="vrt-list-amenties py-2">
+                                                        <i class="fas fa-envelope" style="color: #F41B3B"></i>&nbsp;&nbsp;<span>{{$item->email}}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                   
+                                </div>
+                            </div>
+                            @endforeach
 
-										<input id="check-f" type="checkbox" name="check" >
-										<label for="check-f">Free parking on street</label>
+                        </div>
+                    </div>
 
-										<input id="check-g" type="checkbox" name="check">
-										<label for="check-g">Smoking allowed</label>
+                    {{-- <div class="col-lg-12 col-md-12 col-sm-12">
+                        <ul class="pagination">
+                            <li class="page-item">
+                              <a class="page-link" href="#" aria-label="Previous">
+                                <span class="fas fa-arrow-circle-right"></span>
+                                <span class="sr-only">Previous</span>
+                              </a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item active"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">...</a></li>
+                            <li class="page-item"><a class="page-link" href="#">18</a></li>
+                            <li class="page-item">
+                              <a class="page-link" href="#" aria-label="Next">
+                                <span class="fas fa-arrow-circle-right"></span>
+                                <span class="sr-only">Next</span>
+                              </a>
+                            </li>
+                        </ul>
+                    </div> --}}
 
-										<input id="check-h" type="checkbox" name="check">
-										<label for="check-h">Events</label>
-									</div>
-								</div>
-
-								<!-- Buttons -->
-								<div class="panel-buttons">
-									<button class="panel-cancel">Cancel</button>
-									<button class="panel-apply">Apply</button>
-								</div>
-
-							</div>
-						</div>
-						<!-- Panel Dropdown / End -->
-
-						<!-- Panel Dropdown-->
-						<div class="panel-dropdown float-right">
-							<a href="#">Distance Radius</a>
-							<div class="panel-dropdown-content">
-								<input class="distance-radius" type="range" min="1" max="100" step="1" value="50" data-title="Radius around selected destination">
-								<div class="panel-buttons">
-									<button class="panel-cancel">Disable</button>
-									<button class="panel-apply">Apply</button>
-								</div>
-							</div>
-						</div>
-						<!-- Panel Dropdown / End -->
-
-						<!-- Sort by -->
-						<div class="sort-by">
-							<div class="sort-by-select">
-								<select data-placeholder="Default order" class="chosen-select-no-single">
-									<option>Default Order</option>
-									<option>Highest Rated</option>
-									<option>Most Reviewed</option>
-									<option>Newest Listings</option>
-									<option>Oldest Listings</option>
-								</select>
-							</div>
-						</div>
-						<!-- Sort by / End -->
-
-					</div>
-				</div> --}}
-
-			</div>
-			<!-- Sorting - Filtering Section / End -->
-
-			<div class="row">
-
-
-                @foreach ($searchbusiness as $item)
-                <!-- Listing Item -->
-                <div class="col-lg-12 col-md-12">
-					<div class="listing-item-container list-layout">
-						<a href="{{route('business.single')}}/{{$item->id}}" class="listing-item">
-
-							<!-- Image -->
-							<div class="listing-item-image">
-								<img src="{{asset('business/logo')}}/{{$item->logo}}" alt="">
-                                <span class="tag">
-                                @foreach ($item->cat as $list)
-                                <span >{{$list->name}},</span>
-                                @endforeach
-                                </span>
-
-							</div>
-
-							<!-- Content -->
-							<div class="listing-item-content">
-								<div class="listing-badge now-open">Now Open</div>
-
-								<div class="listing-item-inner">
-									<h3>{{$item->name}} <i class="verified-icon"></i></h3>
-									<span>{{$item->address}}</span>
-
-								</div>
-
-								<span class="like-icon"></span>
-							</div>
-						</a>
-					</div>
-				</div>
-				<!-- Listing Item / End -->
-                @endforeach
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="list-411">
+                            <div class="list-412">
+                                <h4 class="ft-bold mb-0">Can't find the business?</h4>
+                                <span>Adding a business to Goodup is always free.</span>
+                            </div>
+                            <div class="list-413">
+                                <a class="btn text-light theme-bg rounded" href="#">Add business</a>
+                            </div>
+                        </div>
+                    </div>
 
 
 
-			</div>
+                </div>
+                <!-- row -->
 
-			<!-- Pagination -->
-			{{-- <div class="clearfix"></div>
-			<div class="row">
-				<div class="col-md-12">
-					<!-- Pagination -->
-					<div class="pagination-container margin-top-20 margin-bottom-40">
-						<nav class="pagination">
-							<ul>
-								<li><a href="#" class="current-page">1</a></li>
-								<li><a href="#">2</a></li>
-								<li><a href="#">3</a></li>
-								<li><a href="#"><i class="sl sl-icon-arrow-right"></i></a></li>
-							</ul>
-						</nav>
-					</div>
-				</div>
-			</div> --}}
-			<!-- Pagination / End -->
+            </div>
 
-		</div>
-
-	</div>
-</div>
+        </div>
+    </div>
+</section>
+<!-- ============================ Main Section End ================================== -->
 
 
 @endsection

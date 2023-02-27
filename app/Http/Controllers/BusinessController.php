@@ -168,6 +168,7 @@ class BusinessController extends Controller
     {
         $id = Business::where('slug', $slug)->value('id');
         $business = Business::where('id', $id)->first();
+        // dd($business->areas->all());
         return view('FrontEnd.business', compact('business'));
     }
     /**
