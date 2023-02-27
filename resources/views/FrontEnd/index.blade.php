@@ -1,274 +1,3046 @@
 @extends('layouts.master')
 @section('front')
 
-    <!-- Banner
-    ================================================== -->
-    <div class="home-search-carousel carousel-not-ready">
+<div class="home-banner margin-bottom-0" style="background:#f41b3b url(asset/img/banner-6.jpg) no-repeat;" data-overlay="5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-11 col-lg-12 col-md-12 col-sm-12 col-12">
 
-        <!-- Item -->
-        <div class="home-search-slide" style="background-image: url({{asset('assets/images/home-carousel-01.jpg')}})">
-            <div class="home-search-slider-headlines">
-                <div class="container">
-                    <div class="col-md-12">
-                        <h3>Find <a href="#">things you'll love</a></h3>
-                        <h3>Support independent sellers.</h3>
-                    </div>
+                <div class="banner_caption text-center mb-5">
+                    <h1 class="banner_title ft-bold mb-1">Find Great Place in Your Areas</h1>
+                    <p class="fs-md ft-medium">Explore wonderful place to stay, salon, shoping, massage or visit local areas.</p>
                 </div>
+
+                <div class="Goodup-top-cates">
+                    <ul>
+                        <li><a href="half-map-search-2.html" class="Goodup-top-cat-box"><div class="Goodup-tp-ico"><i class="fas fa-stethoscope"></i></div><div class="Goodup-tp-title"><h5>Hospital</h5></div></a></li>
+                        <li><a href="half-map-search-2.html" class="Goodup-top-cat-box"><div class="Goodup-tp-ico"><i class="fas fa-shopping-basket"></i></div><div class="Goodup-tp-title"><h5>Shoppings</h5></div></a></li>
+                        <li><a href="half-map-search-2.html" class="Goodup-top-cat-box"><div class="Goodup-tp-ico"><i class="fas fa-basketball-ball"></i></div><div class="Goodup-tp-title"><h5>Active Life</h5></div></a></li>
+                        <li><a href="half-map-search-2.html" class="Goodup-top-cat-box"><div class="Goodup-tp-ico"><i class="fas fa-utensils"></i></div><div class="Goodup-tp-title"><h5>Restaurants</h5></div></a></li>
+                        <li><a href="half-map-search-2.html" class="Goodup-top-cat-box"><div class="Goodup-tp-ico"><i class="fas fa-car-alt"></i></div><div class="Goodup-tp-title"><h5>Automotive</h5></div></a></li>
+                        <li><a href="half-map-search-2.html" class="Goodup-top-cat-box"><div class="Goodup-tp-ico"><i class="fas fa-pencil-ruler"></i></div><div class="Goodup-tp-title"><h5>Art & Design</h5></div></a></li>
+                    </ul>
+                </div>
+
             </div>
         </div>
+    </div>
+</div>
+<!-- ======================= Home Banner ======================== -->
 
-        <!-- Item -->
-        <div class="home-search-slide" style="background-image: url({{asset('assets/images/home-carousel-02.jpg')}})">
-            <div class="home-search-slider-headlines">
-                <div class="container">
-                    <div class="col-md-12">
-                        <h3>Best <a href="#">Cosy Apartments</a> to Stay</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
+<!-- ======================= Home Search ======================== -->
+<section class="p-0">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-11 col-lg-12 col-md-12 col-12">
 
-        <!-- Item -->
-        <div class="home-search-slide" style="background-image: url({{asset('assets/images/home-carousel-03.jpg')}})">
-            <div class="home-search-slider-headlines">
-                <div class="container">
-                    <div class="col-md-12">
-                        <h3>Scenic places to camp </h3>
-                        <h3>Inspire <a href="#">your next nature trip</a></h3>
-                    </div>
-                </div>
-            </div>
-        </div>
+                <div class="Goodup-search-shadow">
 
-        <!-- Search -->
-        <div class="container search-cont">
-            <div class="col-md-12">
-                <form action="{{route('search')}}" method="GET">
-                        <div class="main-search-input">
-
-                            <div class="main-search-input-item">
-                                <input type="text" name="search" placeholder="What are you looking for?" value=""/>
-                            </div>
-
-                            <div class="main-search-input-item location">
-                                <div id="autocomplete-container">
-                                    <input id="autocomplete-input"  type="text" name="location" placeholder="Location">
+                    <ul class="nav nav-tabs search-tab mb-3" id="myTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="placesseach-tab" data-bs-toggle="tab" data-bs-target="#placesseach" type="button" role="tab" aria-controls="placesseach" aria-selected="true">Places</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="carseach-tab" data-bs-toggle="tab" data-bs-target="#carseach" type="button" role="tab" aria-controls="carseach" aria-selected="false">Car</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="realseach-tab" data-bs-toggle="tab" data-bs-target="#realseach" type="button" role="tab" aria-controls="realseach" aria-selected="false">Real Estate</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="eventseach-tab" data-bs-toggle="tab" data-bs-target="#eventseach" type="button" role="tab" aria-controls="eventseach" aria-selected="false">Events</button>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="placesseach" role="tabpanel" aria-labelledby="placesseach-tab">
+                            <form class="main-search-wrap fl-wrap">
+                                <div class="main-search-item">
+                                    <span class="search-tag"><i class="lni lni-keyboard"></i></span>
+                                    <input type="text" class="form-control radius" placeholder="What are you looking for?" />
                                 </div>
-                                <a href="#"><i class="fa fa-map-marker"></i></a>
-                            </div>
-
-                            <div class="main-search-input-item">
-                                <select data-placeholder="All Categories" class="chosen-select" name="category">
-                                    <option>All Categories</option>
-                                    @foreach ($bcat as $cat)
-                                    <option value="{{$cat->name}}">{{$cat->name}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-
-                            <button type="submit" class="button" >Search</button>
-
+                                <div class="main-search-item">
+                                    <span class="search-tag"><i class="lni lni-map-marker"></i></span>
+                                    <input type="text" class="form-control" placeholder="San Francisco, CA" />
+                                </div>
+                                <div class="main-search-item">
+                                    <span class="search-tag"><i class="lni lni-briefcase"></i></span>
+                                    <select class="form-control">
+                                        <option value="">Choose Category</option>
+                                        <option value="1">Restaurants</option>
+                                        <option value="2">Information Technology</option>
+                                        <option value="3">Hotel Booking</option>
+                                        <option value="4">Cafe & Night Bars</option>
+                                        <option value="5">Healthcare/Pharma</option>
+                                        <option value="6">Wedding & Marriage</option>
+                                        <option value="7">Finance/Insurance</option>
+                                    </select>
+                                </div>
+                                <div class="main-search-button">
+                                    <button class="btn full-width theme-bg text-white" type="button">Search</button>
+                                </div>
+                            </form>
                         </div>
-                    </form>
+                        <div class="tab-pane fade" id="carseach" role="tabpanel" aria-labelledby="carseach-tab">
+                            <form class="main-search-wrap fl-wrap">
+                                <div class="main-search-item">
+                                    <span class="search-tag"><i class="lni lni-keyboard"></i></span>
+                                    <input type="text" class="form-control radius" placeholder="car type, car name" />
+                                </div>
+                                <div class="main-search-item">
+                                    <span class="search-tag"><i class="lni lni-map-marker"></i></span>
+                                    <input type="text" class="form-control" placeholder="Price" />
+                                </div>
+                                <div class="main-search-item">
+                                    <span class="search-tag"><i class="lni lni-briefcase"></i></span>
+                                    <select class="form-control">
+                                        <option value="">Choose Car Brand</option>
+                                        <option value="1">Tata Nexon</option>
+                                        <option value="2">BMW Brand</option>
+                                        <option value="3">Maruti Suzuki</option>
+                                        <option value="4">Hundai Company</option>
+                                        <option value="5">Kia Company</option>
+                                        <option value="6">Mahindra Company</option>
+                                    </select>
+                                </div>
+                                <div class="main-search-button">
+                                    <button class="btn full-width theme-bg text-white" type="button">Search</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="tab-pane fade" id="realseach" role="tabpanel" aria-labelledby="realseach-tab">
+                            <form class="main-search-wrap fl-wrap">
+                                <div class="main-search-item">
+                                    <span class="search-tag"><i class="lni lni-keyboard"></i></span>
+                                    <input type="text" class="form-control radius" placeholder="Job Title, Keyword or Company" />
+                                </div>
+                                <div class="main-search-item">
+                                    <span class="search-tag"><i class="lni lni-map-marker"></i></span>
+                                    <input type="text" class="form-control" placeholder="Location or Zip Code" />
+                                </div>
+                                <div class="main-search-item">
+                                    <span class="search-tag"><i class="lni lni-briefcase"></i></span>
+                                    <select class="form-control">
+                                        <option value="">Property Type</option>
+                                        <option value="1">Homes & Villa</option>
+                                        <option value="2">Apartment</option>
+                                        <option value="3">Condos</option>
+                                        <option value="4">Space & Office</option>
+                                        <option value="5">Town Hall</option>
+                                        <option value="6">Buildings</option>
+                                    </select>
+                                </div>
+                                <div class="main-search-button">
+                                    <button class="btn full-width theme-bg text-white" type="button">Search</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="tab-pane fade" id="eventseach" role="tabpanel" aria-labelledby="eventseach-tab">
+                            <form class="main-search-wrap fl-wrap">
+                                <div class="main-search-item">
+                                    <span class="search-tag"><i class="lni lni-keyboard"></i></span>
+                                    <input type="text" class="form-control radius" placeholder="Job Title, Keyword or Company" />
+                                </div>
+                                <div class="main-search-item">
+                                    <span class="search-tag"><i class="lni lni-map-marker"></i></span>
+                                    <input type="text" class="form-control" placeholder="Location or Zip Code" />
+                                </div>
+                                <div class="main-search-item">
+                                    <span class="search-tag"><i class="lni lni-briefcase"></i></span>
+                                    <select class="form-control">
+                                        <option value="">Choose Categories</option>
+                                        <option value="1">Festaurants</option>
+                                        <option value="2">Information Technology</option>
+                                        <option value="3">Cloud Computing</option>
+                                        <option value="4">Engineering Services</option>
+                                        <option value="5">Healthcare/Pharma</option>
+                                        <option value="6">Telecom/ Internet</option>
+                                        <option value="7">Finance/Insurance</option>
+                                    </select>
+                                </div>
+                                <div class="main-search-button">
+                                    <button class="btn full-width theme-bg text-white" type="button">Search</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
+</section>
+<!-- ======================= Home Search End ======================== -->
 
+<!-- ======================= All Types Listing ======================== -->
+<section class="space min">
+    <div class="container">
 
-    <!-- Content
-    ================================================== -->
-    <section class="fullwidth margin-top-0 padding-top-0 padding-bottom-70 background-gradient">
-    <div class="container" >
-        <div class="row">
-
-            <div class="col-md-12">
-                <h3 class="headline centered margin-top-0">
-                    <strong class="headline-with-separator">Popular Categories</strong>
-                </h3>
-            </div>
-
-            <div class="col-md-12">
-                <div class="categorxies-boxes-container-alt margin-top-5 margin-bottom-30">
-
-                    @foreach ($bcat as $item)
-                        <!-- Box -->
-                        <a href="{{route('singcat')}}/{{$item->slug}}" class="category-small-box-alt">
-                            <img class="image" src="{{asset('business/icons')}}/{{$item->icon}}" alt="" style="width: 50px;">
-
-                            <h4>{{$item->name}}</h4>
-
-                            <img class="back-image" src="{{asset('business/businesscategory')}}/{{$item->image}}">
-                        </a>
-                    @endforeach
-
-
-
-
+        <div class="row justify-content-center">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                <div class="sec_title position-relative text-center mb-5">
+                    <h6 class="theme-cl mb-0">Featured Listings</h6>
+                    <h2 class="ft-bold">Goodup in Los Angeles</h2>
                 </div>
             </div>
         </div>
-    </div>
-    </section>
-    <!-- Category Boxes / End -->
 
-    </div>
-
-
-    <!-- Listings -->
-    <div class="container margin-top-70">
-        <div class="row">
-
-            <div class="col-md-12">
-                <h3 class="headline centered margin-bottom-45">
-                    <strong class="headline-with-separator">Featured Listings</strong>
-                    <span>Discover Top-Rated Local Businesses</span>
-                </h3>
+        <!-- row -->
+        <div class="row align-items-center">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                <ul class="nav nav-tabs small-tab mb-3" id="myTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="places-tab" data-bs-toggle="tab" data-bs-target="#places" type="button" role="tab" aria-controls="places" aria-selected="true">Places</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="events-tab" data-bs-toggle="tab" data-bs-target="#events" type="button" role="tab" aria-controls="events" aria-selected="false">Events</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="doctor-tab" data-bs-toggle="tab" data-bs-target="#doctor" type="button" role="tab" aria-controls="doctor" aria-selected="false">Doctors</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="car-tab" data-bs-toggle="tab" data-bs-target="#car" type="button" role="tab" aria-controls="car" aria-selected="false">Cars</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="real-tab" data-bs-toggle="tab" data-bs-target="#real" type="button" role="tab" aria-controls="real" aria-selected="false">Real Estate</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="hotels-tab" data-bs-toggle="tab" data-bs-target="#hotels" type="button" role="tab" aria-controls="hotels" aria-selected="false">Hotels</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="jobs-tab" data-bs-toggle="tab" data-bs-target="#jobs" type="button" role="tab" aria-controls="jobs" aria-selected="false">jobs</button>
+                    </li>
+                </ul>
             </div>
 
-            <div class="col-md-12">
-                <div class="simple-slick-carousel dots-nav">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                <div class="tab-content" id="myTabsContent">
 
-                    @foreach ($business as $item)
-                                    <!-- Listing Item -->
-                <div class="carousel-item">
-                    <a href="{{route('business.single')}}/{{$item->slug}}" class="listing-item-container">
-                        <div class="listing-item">
-                            <img src="{{asset('business/feature')}}/{{$item->featureImage}}" alt="">
+                    <!-- Places -->
+                    <div class="tab-pane fade show active" id="places" role="tabpanel" aria-labelledby="places-tab">
+                        <div class="row justify-content-center">
 
-
-
-                            <div class="listing-item-content">
-
-                                <h3>{{$item->name}}</h3>
-                                <span>{{$item->address}}</span>
+                            <!-- Single -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                                <div class="Goodup-grid-wrap">
+                                    <div class="Goodup-grid-upper">
+                                        <div class="Goodup-pos ab-left">
+                                            <div class="Goodup-status close me-2">Closed</div>
+                                        </div>
+                                        <div class="Goodup-grid-thumb">
+                                            <a href="single-listing-detail-2.html" class="d-block text-center m-auto"><img src="assets/img/listing/l-5.jpg" class="img-fluid" alt=""></a>
+                                        </div>
+                                        <div class="Goodup-rating overlay">
+                                            <div class="Goodup-pr-average high">4.8</div>
+                                            <div class="Goodup-aldeio">
+                                                <div class="Goodup-rates">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                                <div class="Goodup-all-review"><span>46 Reviews</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="Goodup-grid-fl-wrap">
+                                        <div class="Goodup-caption px-3 py-2">
+                                            <div class="Goodup-author"><a href="author-detail.html"><img src="assets/img/t-1.png" class="img-fluid circle" alt=""></a></div>
+                                            <h4 class="mb-0 ft-medium medium"><a href="single-listing-detail-2.html" class="text-dark fs-md">Pretty Woman Smart Batra</a></h4>
+                                            <div class="Goodup-location"><i class="fas fa-map-marker-alt me-1 theme-cl"></i>California, USA</div>
+                                            <div class="Goodup-middle-caption mt-3">
+                                                <p>At vero eos et accusamus et iusto odio dignissimos ducimus</p>
+                                            </div>
+                                        </div>
+                                        <div class="Goodup-grid-footer py-2 px-3">
+                                            <div class="Goodup-ft-first">
+                                                <a href="half-map-search-2.html" class="Goodup-cats-wrap"><div class="cats-ico bg-2"><i class="lni lni-slim"></i></div><span class="cats-title">Beauty &amp; Makeup</span></a>
+                                            </div>
+                                            <div class="Goodup-ft-last">
+                                                <div class="Goodup-inline">
+                                                    <div class="Goodup-bookmark-btn"><button type="button"><i class="lni lni-envelope position-absolute"></i></button></div>
+                                                    <div class="Goodup-bookmark-btn"><button type="button"><i class="lni lni-heart-filled position-absolute"></i></button></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <span class="like-icon"></span>
-                        </div>
 
+                            <!-- Single -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                                <div class="Goodup-grid-wrap">
+                                    <div class="Goodup-grid-upper">
+                                        <div class="Goodup-pos ab-left">
+                                            <div class="Goodup-status open me-2">Open</div>
+                                            <div class="Goodup-featured-tag">Featured</div>
+                                        </div>
+                                        <div class="Goodup-grid-thumb">
+                                            <a href="single-listing-detail-2.html" class="d-block text-center m-auto"><img src="assets/img/listing/l-6.jpg" class="img-fluid" alt=""></a>
+                                        </div>
+                                        <div class="Goodup-rating overlay">
+                                            <div class="Goodup-pr-average high">4.1</div>
+                                            <div class="Goodup-aldeio">
+                                                <div class="Goodup-rates">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                                <div class="Goodup-all-review"><span>17 Reviews</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="Goodup-grid-fl-wrap">
+                                        <div class="Goodup-caption px-3 py-2">
+                                            <div class="Goodup-author"><a href="author-detail.html"><img src="assets/img/t-2.png" class="img-fluid circle" alt=""></a></div>
+                                            <h4 class="mb-0 ft-medium medium"><a href="single-listing-detail-2.html" class="text-dark fs-md">The Sartaj Blue Night</a></h4>
+                                            <div class="Goodup-location"><i class="fas fa-map-marker-alt me-1 theme-cl"></i>San Francisco, USA</div>
+                                            <div class="Goodup-middle-caption mt-3">
+                                                <p>At vero eos et accusamus et iusto odio dignissimos ducimus</p>
+                                            </div>
+                                        </div>
+                                        <div class="Goodup-grid-footer py-2 px-3">
+                                            <div class="Goodup-ft-first">
+                                                <a href="half-map-search-2.html" class="Goodup-cats-wrap"><div class="cats-ico bg-3"><i class="lni lni-cake"></i></div><span class="cats-title">Night Party</span></a>
+                                            </div>
+                                            <div class="Goodup-ft-last">
+                                                <div class="Goodup-inline">
+                                                    <div class="Goodup-bookmark-btn"><button type="button"><i class="lni lni-envelope position-absolute"></i></button></div>
+                                                    <div class="Goodup-bookmark-btn"><button type="button"><i class="lni lni-heart-filled position-absolute"></i></button></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Single -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                                <div class="Goodup-grid-wrap">
+                                    <div class="Goodup-grid-upper">
+                                        <div class="Goodup-pos ab-left">
+                                            <div class="Goodup-status open me-2">Open</div>
+                                        </div>
+                                        <div class="Goodup-grid-thumb">
+                                            <a href="single-listing-detail-2.html" class="d-block text-center m-auto"><img src="assets/img/listing/l-7.jpg" class="img-fluid" alt=""></a>
+                                        </div>
+                                        <div class="Goodup-rating overlay">
+                                            <div class="Goodup-pr-average mid">3.6</div>
+                                            <div class="Goodup-aldeio">
+                                                <div class="Goodup-rates">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                                <div class="Goodup-all-review"><span>30 Reviews</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="Goodup-grid-fl-wrap">
+                                        <div class="Goodup-caption px-3 py-2">
+                                            <div class="Goodup-author"><a href="author-detail.html"><img src="assets/img/t-3.png" class="img-fluid circle" alt=""></a></div>
+                                            <h4 class="mb-0 ft-medium medium"><a href="single-listing-detail-2.html" class="text-dark fs-md">Pizza Delight Cafe Shop</a></h4>
+                                            <div class="Goodup-location"><i class="fas fa-map-marker-alt me-1 theme-cl"></i>102 Satirio, Canada</div>
+                                            <div class="Goodup-middle-caption mt-3">
+                                                <p>At vero eos et accusamus et iusto odio dignissimos ducimus</p>
+                                            </div>
+                                        </div>
+                                        <div class="Goodup-grid-footer py-2 px-3">
+                                            <div class="Goodup-ft-first">
+                                                <a href="half-map-search-2.html" class="Goodup-cats-wrap"><div class="cats-ico bg-4"><i class="lni lni-coffee-cup"></i></div><span class="cats-title">Coffee &amp; Bars</span></a>
+                                            </div>
+                                            <div class="Goodup-ft-last">
+                                                <div class="Goodup-inline">
+                                                    <div class="Goodup-bookmark-btn"><button type="button"><i class="lni lni-envelope position-absolute"></i></button></div>
+                                                    <div class="Goodup-bookmark-btn"><button type="button"><i class="lni lni-heart-filled position-absolute"></i></button></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Single -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                                <div class="Goodup-grid-wrap">
+                                    <div class="Goodup-grid-upper">
+                                        <div class="Goodup-pos ab-left">
+                                            <div class="Goodup-status close me-2">Closed</div>
+                                            <div class="Goodup-featured-tag">Featured</div>
+                                        </div>
+                                        <div class="Goodup-grid-thumb">
+                                            <a href="single-listing-detail-2.html" class="d-block text-center m-auto"><img src="assets/img/listing/l-8.jpg" class="img-fluid" alt=""></a>
+                                        </div>
+                                        <div class="Goodup-rating overlay">
+                                            <div class="Goodup-pr-average poor">2.3</div>
+                                            <div class="Goodup-aldeio">
+                                                <div class="Goodup-rates">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                                <div class="Goodup-all-review"><span>42 Reviews</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="Goodup-grid-fl-wrap">
+                                        <div class="Goodup-caption px-3 py-2">
+                                            <div class="Goodup-author"><a href="author-detail.html"><img src="assets/img/t-4.png" class="img-fluid circle" alt=""></a></div>
+                                            <h4 class="mb-0 ft-medium medium"><a href="single-listing-detail-2.html" class="text-dark fs-md">The Great Allante Shop</a></h4>
+                                            <div class="Goodup-location"><i class="fas fa-map-marker-alt me-1 theme-cl"></i>Oliy Denver, USA</div>
+                                            <div class="Goodup-middle-caption mt-3">
+                                                <p>At vero eos et accusamus et iusto odio dignissimos ducimus</p>
+                                            </div>
+                                        </div>
+                                        <div class="Goodup-grid-footer py-2 px-3">
+                                            <div class="Goodup-ft-first">
+                                                <a href="half-map-search-2.html" class="Goodup-cats-wrap"><div class="cats-ico bg-5"><i class="lni lni-shopping-basket"></i></div><span class="cats-title">Shopping Mall</span></a>
+                                            </div>
+                                            <div class="Goodup-ft-last">
+                                                <div class="Goodup-inline">
+                                                    <div class="Goodup-bookmark-btn"><button type="button"><i class="lni lni-envelope position-absolute"></i></button></div>
+                                                    <div class="Goodup-bookmark-btn"><button type="button"><i class="lni lni-heart-filled position-absolute"></i></button></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Single -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                                <div class="Goodup-grid-wrap">
+                                    <div class="Goodup-grid-upper">
+                                        <div class="Goodup-pos ab-left">
+                                            <div class="Goodup-status open me-2">Open</div>
+                                        </div>
+                                        <div class="Goodup-grid-thumb">
+                                            <a href="single-listing-detail-2.html" class="d-block text-center m-auto"><img src="assets/img/listing/l-9.jpg" class="img-fluid" alt=""></a>
+                                        </div>
+                                        <div class="Goodup-rating overlay">
+                                            <div class="Goodup-pr-average high">4.2</div>
+                                            <div class="Goodup-aldeio">
+                                                <div class="Goodup-rates">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                                <div class="Goodup-all-review"><span>12 Reviews</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="Goodup-grid-fl-wrap">
+                                        <div class="Goodup-caption px-3 py-2">
+                                            <div class="Goodup-author"><a href="author-detail.html"><img src="assets/img/t-5.png" class="img-fluid circle" alt=""></a></div>
+                                            <h4 class="mb-0 ft-medium medium"><a href="single-listing-detail-2.html" class="text-dark fs-md">Unisex Blue Spa Massage</a></h4>
+                                            <div class="Goodup-location"><i class="fas fa-map-marker-alt me-1 theme-cl"></i>Warmingham, London</div>
+                                            <div class="Goodup-middle-caption mt-3">
+                                                <p>At vero eos et accusamus et iusto odio dignissimos ducimus</p>
+                                            </div>
+                                        </div>
+                                        <div class="Goodup-grid-footer py-2 px-3">
+                                            <div class="Goodup-ft-first">
+                                                <a href="half-map-search-2.html" class="Goodup-cats-wrap"><div class="cats-ico bg-5"><i class="lni lni-surf-board"></i></div><span class="cats-title">Spa &amp; Salon</span></a>
+                                            </div>
+                                            <div class="Goodup-ft-last">
+                                                <div class="Goodup-inline">
+                                                    <div class="Goodup-bookmark-btn"><button type="button"><i class="lni lni-envelope position-absolute"></i></button></div>
+                                                    <div class="Goodup-bookmark-btn"><button type="button"><i class="lni lni-heart-filled position-absolute"></i></button></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Single -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                                <div class="Goodup-grid-wrap">
+                                    <div class="Goodup-grid-upper">
+                                        <div class="Goodup-pos ab-left">
+                                            <div class="Goodup-status close me-2">Closed</div>
+                                            <div class="Goodup-featured-tag">Featured</div>
+                                        </div>
+                                        <div class="Goodup-grid-thumb">
+                                            <a href="single-listing-detail-2.html" class="d-block text-center m-auto"><img src="assets/img/listing/l-10.jpg" class="img-fluid" alt=""></a>
+                                        </div>
+                                        <div class="Goodup-rating overlay">
+                                            <div class="Goodup-pr-average poor">2.7</div>
+                                            <div class="Goodup-aldeio">
+                                                <div class="Goodup-rates">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                                <div class="Goodup-all-review"><span>36 Reviews</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="Goodup-grid-fl-wrap">
+                                        <div class="Goodup-caption px-3 py-2">
+                                            <div class="Goodup-author"><a href="author-detail.html"><img src="assets/img/t-6.png" class="img-fluid circle" alt=""></a></div>
+                                            <h4 class="mb-0 ft-medium medium"><a href="single-listing-detail-2.html" class="text-dark fs-md">Washington, Canada</a></h4>
+                                            <div class="Goodup-location"><i class="fas fa-map-marker-alt me-1 theme-cl"></i>Liverpool, London</div>
+                                            <div class="Goodup-middle-caption mt-3">
+                                                <p>At vero eos et accusamus et iusto odio dignissimos ducimus</p>
+                                            </div>
+                                        </div>
+                                        <div class="Goodup-grid-footer py-2 px-3">
+                                            <div class="Goodup-ft-first">
+                                                <a href="half-map-search-2.html" class="Goodup-cats-wrap"><div class="cats-ico bg-6"><i class="lni lni-burger"></i></div><span class="cats-title">Food Services</span></a>
+                                            </div>
+                                            <div class="Goodup-ft-last">
+                                                <div class="Goodup-inline">
+                                                    <div class="Goodup-bookmark-btn"><button type="button"><i class="lni lni-envelope position-absolute"></i></button></div>
+                                                    <div class="Goodup-bookmark-btn"><button type="button"><i class="lni lni-heart-filled position-absolute"></i></button></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Single -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                                <div class="Goodup-grid-wrap">
+                                    <div class="Goodup-grid-upper">
+                                        <div class="Goodup-pos ab-left">
+                                            <div class="Goodup-status close me-2">Closed</div>
+                                        </div>
+                                        <div class="Goodup-grid-thumb">
+                                            <a href="single-listing-detail-2.html" class="d-block text-center m-auto"><img src="assets/img/listing/l-11.jpg" class="img-fluid" alt=""></a>
+                                        </div>
+                                        <div class="Goodup-rating overlay">
+                                            <div class="Goodup-pr-average high">4.3</div>
+                                            <div class="Goodup-aldeio">
+                                                <div class="Goodup-rates">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                                <div class="Goodup-all-review"><span>22 Reviews</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="Goodup-grid-fl-wrap">
+                                        <div class="Goodup-caption px-3 py-2">
+                                            <div class="Goodup-author"><a href="author-detail.html"><img src="assets/img/t-7.png" class="img-fluid circle" alt=""></a></div>
+                                            <h4 class="mb-0 ft-medium medium"><a href="single-listing-detail-2.html" class="text-dark fs-md">Ubber Shopping Services</a></h4>
+                                            <div class="Goodup-location"><i class="fas fa-map-marker-alt me-1 theme-cl"></i>Metrio General Store</div>
+                                            <div class="Goodup-middle-caption mt-3">
+                                                <p>At vero eos et accusamus et iusto odio dignissimos ducimus</p>
+                                            </div>
+                                        </div>
+                                        <div class="Goodup-grid-footer py-2 px-3">
+                                            <div class="Goodup-ft-first">
+                                                <a href="half-map-search-2.html" class="Goodup-cats-wrap"><div class="cats-ico bg-7"><i class="lni lni-car"></i></div><span class="cats-title">Tour &amp; Travels</span></a>
+                                            </div>
+                                            <div class="Goodup-ft-last">
+                                                <div class="Goodup-inline">
+                                                    <div class="Goodup-bookmark-btn"><button type="button"><i class="lni lni-envelope position-absolute"></i></button></div>
+                                                    <div class="Goodup-bookmark-btn"><button type="button"><i class="lni lni-heart-filled position-absolute"></i></button></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Single -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                                <div class="Goodup-grid-wrap">
+                                    <div class="Goodup-grid-upper">
+                                        <div class="Goodup-pos ab-left">
+                                            <div class="Goodup-status open me-2">Open</div>
+                                            <div class="Goodup-featured-tag">Featured</div>
+                                        </div>
+                                        <div class="Goodup-grid-thumb">
+                                            <a href="single-listing-detail-2.html" class="d-block text-center m-auto"><img src="assets/img/listing/l-1.jpg" class="img-fluid" alt=""></a>
+                                        </div>
+                                        <div class="Goodup-rating overlay">
+                                            <div class="Goodup-pr-average mid">3.5</div>
+                                            <div class="Goodup-aldeio">
+                                                <div class="Goodup-rates">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                                <div class="Goodup-all-review"><span>12 Reviews</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="Goodup-grid-fl-wrap">
+                                        <div class="Goodup-caption px-3 py-2">
+                                            <div class="Goodup-author"><a href="author-detail.html"><img src="assets/img/t-8.png" class="img-fluid circle" alt=""></a></div>
+                                            <h4 class="mb-0 ft-medium medium"><a href="single-listing-detail-2.html" class="text-dark fs-md">Rajwara Marriage Home</a></h4>
+                                            <div class="Goodup-location"><i class="fas fa-map-marker-alt me-1 theme-cl"></i>Old California, USA</div>
+                                            <div class="Goodup-middle-caption mt-3">
+                                                <p>At vero eos et accusamus et iusto odio dignissimos ducimus</p>
+                                            </div>
+                                        </div>
+                                        <div class="Goodup-grid-footer py-2 px-3">
+                                            <div class="Goodup-ft-first">
+                                                <a href="half-map-search-2.html" class="Goodup-cats-wrap"><div class="cats-ico bg-8"><i class="lni lni-gift"></i></div><span class="cats-title">Wedding</span></a>
+                                            </div>
+                                            <div class="Goodup-ft-last">
+                                                <div class="Goodup-inline">
+                                                    <div class="Goodup-bookmark-btn"><button type="button"><i class="lni lni-envelope position-absolute"></i></button></div>
+                                                    <div class="Goodup-bookmark-btn"><button type="button"><i class="lni lni-heart-filled position-absolute"></i></button></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- /Places -->
+
+                    <!-- Events -->
+                    <div class="tab-pane fade" id="events" role="tabpanel" aria-labelledby="events-tab">
+                        <div class="row justify-content-center">
+
+                            <!-- Single -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                                <div class="Goodup-grid-wrap">
+                                    <div class="Goodup-grid-upper">
+                                        <div class="Goodup-bookmark-btn"><button type="button"><i class="lni lni-heart-filled position-absolute"></i></button></div>
+                                        <div class="Goodup-grid-thumb">
+                                            <a href="event-detail.html" class="d-block text-center m-auto"><img src="assets/img/listing/l-1.jpg" class="img-fluid" alt=""></a>
+                                        </div>
+                                        <div class="Goodup-overlay-caps">
+                                            <h4 class="mb-0 ft-medium medium"><a href="event-detail.html" class="text-white fs-md">Amagansett Go Around</a></h4>
+                                            <div class="Goodup-location text-white"><i class="fas fa-map-marker-alt me-1"></i>Meltron Silver, UK</div>
+                                        </div>
+                                    </div>
+                                    <div class="Goodup-grid-fl-wrap">
+                                        <div class="Goodup-grid-footer py-3 px-3">
+                                            <div class="Goodup-ft-first">
+                                                <div class="Goodup-catsin">
+                                                    Sport & Football
+                                                </div>
+                                            </div>
+                                            <div class="Goodup-ft-last">
+                                                <span class="small">9 Fab 09:30 - 10:30</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Single -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                                <div class="Goodup-grid-wrap">
+                                    <div class="Goodup-grid-upper">
+                                        <div class="Goodup-bookmark-btn"><button type="button"><i class="lni lni-heart-filled position-absolute"></i></button></div>
+                                        <div class="Goodup-grid-thumb">
+                                            <a href="event-detail.html" class="d-block text-center m-auto"><img src="assets/img/listing/l-2.jpg" class="img-fluid" alt=""></a>
+                                        </div>
+                                        <div class="Goodup-overlay-caps">
+                                            <h4 class="mb-0 ft-medium medium"><a href="event-detail.html" class="text-white fs-md">Amateur Barber Night</a></h4>
+                                            <div class="Goodup-location text-white"><i class="fas fa-map-marker-alt me-1"></i>California, USA</div>
+                                        </div>
+                                    </div>
+                                    <div class="Goodup-grid-fl-wrap">
+                                        <div class="Goodup-grid-footer py-3 px-3">
+                                            <div class="Goodup-ft-first">
+                                                <div class="Goodup-catsin">
+                                                    Sport & Football
+                                                </div>
+                                            </div>
+                                            <div class="Goodup-ft-last">
+                                                <span class="small">10 Fab 09:00 - 10:00</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Single -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                                <div class="Goodup-grid-wrap">
+                                    <div class="Goodup-grid-upper">
+                                        <div class="Goodup-bookmark-btn"><button type="button"><i class="lni lni-heart-filled position-absolute"></i></button></div>
+                                        <div class="Goodup-grid-thumb">
+                                            <a href="event-detail.html" class="d-block text-center m-auto"><img src="assets/img/listing/l-3.jpg" class="img-fluid" alt=""></a>
+                                        </div>
+                                        <div class="Goodup-overlay-caps">
+                                            <h4 class="mb-0 ft-medium medium"><a href="event-detail.html" class="text-white fs-md">Apex Muker Trys</a></h4>
+                                            <div class="Goodup-location text-white"><i class="fas fa-map-marker-alt me-1"></i>Montreal, Australia</div>
+                                        </div>
+                                    </div>
+                                    <div class="Goodup-grid-fl-wrap">
+                                        <div class="Goodup-grid-footer py-3 px-3">
+                                            <div class="Goodup-ft-first">
+                                                <div class="Goodup-catsin">
+                                                    It Services
+                                                </div>
+                                            </div>
+                                            <div class="Goodup-ft-last">
+                                                <span class="small">12 Apr 14:30 - 15:45</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Single -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                                <div class="Goodup-grid-wrap">
+                                    <div class="Goodup-grid-upper">
+                                        <div class="Goodup-bookmark-btn"><button type="button"><i class="lni lni-heart-filled position-absolute"></i></button></div>
+                                        <div class="Goodup-grid-thumb">
+                                            <a href="event-detail.html" class="d-block text-center m-auto"><img src="assets/img/listing/l-4.jpg" class="img-fluid" alt=""></a>
+                                        </div>
+                                        <div class="Goodup-overlay-caps">
+                                            <h4 class="mb-0 ft-medium medium"><a href="event-detail.html" class="text-white fs-md">Ragni Book Launching</a></h4>
+                                            <div class="Goodup-location text-white"><i class="fas fa-map-marker-alt me-1"></i>Old Denver, USA</div>
+                                        </div>
+                                    </div>
+                                    <div class="Goodup-grid-fl-wrap">
+                                        <div class="Goodup-grid-footer py-3 px-3">
+                                            <div class="Goodup-ft-first">
+                                                <div class="Goodup-catsin">
+                                                    Education
+                                                </div>
+                                            </div>
+                                            <div class="Goodup-ft-last">
+                                                <span class="small">18 Oct 10:00 - 11:00</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Single -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                                <div class="Goodup-grid-wrap">
+                                    <div class="Goodup-grid-upper">
+                                        <div class="Goodup-bookmark-btn"><button type="button"><i class="lni lni-heart-filled position-absolute"></i></button></div>
+                                        <div class="Goodup-grid-thumb">
+                                            <a href="event-detail.html" class="d-block text-center m-auto"><img src="assets/img/listing/l-5.jpg" class="img-fluid" alt=""></a>
+                                        </div>
+                                        <div class="Goodup-overlay-caps">
+                                            <h4 class="mb-0 ft-medium medium"><a href="event-detail.html" class="text-white fs-md">Madhu Spa Salon</a></h4>
+                                            <div class="Goodup-location text-white"><i class="fas fa-map-marker-alt me-1"></i>104 Washington, USA</div>
+                                        </div>
+                                    </div>
+                                    <div class="Goodup-grid-fl-wrap">
+                                        <div class="Goodup-grid-footer py-3 px-3">
+                                            <div class="Goodup-ft-first">
+                                                <div class="Goodup-catsin">
+                                                    Spa & Salon
+                                                </div>
+                                            </div>
+                                            <div class="Goodup-ft-last">
+                                                <span class="small">12 Sep 10:00 - 10:30</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Single -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                                <div class="Goodup-grid-wrap">
+                                    <div class="Goodup-grid-upper">
+                                        <div class="Goodup-bookmark-btn"><button type="button"><i class="lni lni-heart-filled position-absolute"></i></button></div>
+                                        <div class="Goodup-grid-thumb">
+                                            <a href="event-detail.html" class="d-block text-center m-auto"><img src="assets/img/listing/l-6.jpg" class="img-fluid" alt=""></a>
+                                        </div>
+                                        <div class="Goodup-overlay-caps">
+                                            <h4 class="mb-0 ft-medium medium"><a href="event-detail.html" class="text-white fs-md">Blue Light Cafe</a></h4>
+                                            <div class="Goodup-location text-white"><i class="fas fa-map-marker-alt me-1"></i>California, Canada</div>
+                                        </div>
+                                    </div>
+                                    <div class="Goodup-grid-fl-wrap">
+                                        <div class="Goodup-grid-footer py-3 px-3">
+                                            <div class="Goodup-ft-first">
+                                                <div class="Goodup-catsin">
+                                                    Party & Cafe
+                                                </div>
+                                            </div>
+                                            <div class="Goodup-ft-last">
+                                                <span class="small">17 Jul 12:00 - 14:00</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Single -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                                <div class="Goodup-grid-wrap">
+                                    <div class="Goodup-grid-upper">
+                                        <div class="Goodup-bookmark-btn"><button type="button"><i class="lni lni-heart-filled position-absolute"></i></button></div>
+                                        <div class="Goodup-grid-thumb">
+                                            <a href="event-detail.html" class="d-block text-center m-auto"><img src="assets/img/listing/l-7.jpg" class="img-fluid" alt=""></a>
+                                        </div>
+                                        <div class="Goodup-overlay-caps">
+                                            <h4 class="mb-0 ft-medium medium"><a href="event-detail.html" class="text-white fs-md">Allante Mall Opening</a></h4>
+                                            <div class="Goodup-location text-white"><i class="fas fa-map-marker-alt me-1"></i>Liverpool, London</div>
+                                        </div>
+                                    </div>
+                                    <div class="Goodup-grid-fl-wrap">
+                                        <div class="Goodup-grid-footer py-3 px-3">
+                                            <div class="Goodup-ft-first">
+                                                <div class="Goodup-catsin">
+                                                    Shopping
+                                                </div>
+                                            </div>
+                                            <div class="Goodup-ft-last">
+                                                <span class="small">10 June 10:00 - 11:30</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Single -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                                <div class="Goodup-grid-wrap">
+                                    <div class="Goodup-grid-upper">
+                                        <div class="Goodup-bookmark-btn"><button type="button"><i class="lni lni-heart-filled position-absolute"></i></button></div>
+                                        <div class="Goodup-grid-thumb">
+                                            <a href="event-detail.html" class="d-block text-center m-auto"><img src="assets/img/listing/l-8.jpg" class="img-fluid" alt=""></a>
+                                        </div>
+                                        <div class="Goodup-overlay-caps">
+                                            <h4 class="mb-0 ft-medium medium"><a href="event-detail.html" class="text-white fs-md">Antisocial Darwinism</a></h4>
+                                            <div class="Goodup-location text-white"><i class="fas fa-map-marker-alt me-1"></i>San Francisco, USA</div>
+                                        </div>
+                                    </div>
+                                    <div class="Goodup-grid-fl-wrap">
+                                        <div class="Goodup-grid-footer py-3 px-3">
+                                            <div class="Goodup-ft-first">
+                                                <div class="Goodup-catsin">
+                                                    Social Network
+                                                </div>
+                                            </div>
+                                            <div class="Goodup-ft-last">
+                                                <span class="small">15 May 10:00 - 11:00</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- /Events -->
+
+                    <!-- Doctor -->
+                    <div class="tab-pane fade" id="doctor" role="tabpanel" aria-labelledby="doctor-tab">
+                        <div class="row justify-content-center">
+
+                            <!-- Single -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                                <div class="doctor-grid-view">
+                                    <div class="doctor-grid-thumb">
+                                        <a href="single-listing-detail-4.html"><img src="assets/img/doc-1.jpg" class="img-fluid" alt=""></a>
+                                    </div>
+
+                                    <div class="doctor-grid-caption">
+                                        <div class="doc-title-wrap"><h4 class="doc-title verified"><a href="single-listing-detail-4.html">Dr. Heather D. Birch</a></h4></div>
+                                        <span class="doc-designation">MBBS, MS - General Surgery, MCh</span>
+
+                                        <div class="doc-inner-wrap">
+                                            <div class="doc-ratting-boxes">
+                                                <ul class="doc ratting-view">
+                                                    <li><i class="fas fa-star filled"></i></li>
+                                                    <li><i class="fas fa-star filled"></i></li>
+                                                    <li><i class="fas fa-star filled"></i></li>
+                                                    <li><i class="fas fa-star filled"></i></li>
+                                                    <li><i class="fas fa-star"></i></li>
+                                                </ul>
+                                                <span class="doctor-review-list">(44 Reviews)</span>
+                                            </div>
+                                            <div class="doc-location"><i class="fas fa-map-marker-alt me-1 theme-cl"></i>G87P, Birmingham, UK</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="doctor-grid-footer">
+                                        <div class="doc-foot-first"><span class="av-status available">Available Today</span></div>
+                                        <div class="doc-foot-last"><a href="#" class="btn doc-book-btn">Book Now</a></div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <!-- Single -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                                <div class="doctor-grid-view">
+                                    <div class="doctor-grid-thumb">
+                                        <a href="single-listing-detail-4.html"><img src="assets/img/doc-2.jpg" class="img-fluid" alt=""></a>
+                                    </div>
+
+                                    <div class="doctor-grid-caption">
+                                        <div class="doc-title-wrap"><h4 class="doc-title verified"><a href="single-listing-detail-4.html">Dr. Joyce G. Howell</a></h4></div>
+                                        <span class="doc-designation">MBBS, MS - General Surgery, MCh</span>
+
+                                        <div class="doc-inner-wrap">
+                                            <div class="doc-ratting-boxes">
+                                                <ul class="doc ratting-view">
+                                                    <li><i class="fas fa-star filled"></i></li>
+                                                    <li><i class="fas fa-star filled"></i></li>
+                                                    <li><i class="fas fa-star filled"></i></li>
+                                                    <li><i class="fas fa-star filled"></i></li>
+                                                    <li><i class="fas fa-star"></i></li>
+                                                </ul>
+                                                <span class="doctor-review-list">(44 Reviews)</span>
+                                            </div>
+                                            <div class="doc-location"><i class="fas fa-map-marker-alt me-1 theme-cl"></i>G87P, Birmingham, UK</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="doctor-grid-footer">
+                                        <div class="doc-foot-first"><span class="av-status available">Available Today</span></div>
+                                        <div class="doc-foot-last"><a href="#" class="btn doc-book-btn">Book Now</a></div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <!-- Single -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                                <div class="doctor-grid-view">
+                                    <div class="doctor-grid-thumb">
+                                        <a href="single-listing-detail-4.html"><img src="assets/img/doc-3.jpg" class="img-fluid" alt=""></a>
+                                    </div>
+
+                                    <div class="doctor-grid-caption">
+                                        <div class="doc-title-wrap"><h4 class="doc-title verified"><a href="single-listing-detail-4.html">Dr. Juliana J. GGoodupry</a></h4></div>
+                                        <span class="doc-designation">MBBS, MS - General Surgery, MCh</span>
+
+                                        <div class="doc-inner-wrap">
+                                            <div class="doc-ratting-boxes">
+                                                <ul class="doc ratting-view">
+                                                    <li><i class="fas fa-star filled"></i></li>
+                                                    <li><i class="fas fa-star filled"></i></li>
+                                                    <li><i class="fas fa-star filled"></i></li>
+                                                    <li><i class="fas fa-star filled"></i></li>
+                                                    <li><i class="fas fa-star"></i></li>
+                                                </ul>
+                                                <span class="doctor-review-list">(44 Reviews)</span>
+                                            </div>
+                                            <div class="doc-location"><i class="fas fa-map-marker-alt me-1 theme-cl"></i>G87P, Birmingham, UK</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="doctor-grid-footer">
+                                        <div class="doc-foot-first"><span class="av-status available">Available Today</span></div>
+                                        <div class="doc-foot-last"><a href="#" class="btn doc-book-btn">Book Now</a></div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <!-- Single -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                                <div class="doctor-grid-view">
+                                    <div class="doctor-grid-thumb">
+                                        <a href="single-listing-detail-4.html"><img src="assets/img/doc-4.jpg" class="img-fluid" alt=""></a>
+                                    </div>
+
+                                    <div class="doctor-grid-caption">
+                                        <div class="doc-title-wrap"><h4 class="doc-title verified"><a href="single-listing-detail-4.html">Dr. Elizabeth J. Vergara</a></h4></div>
+                                        <span class="doc-designation">MBBS, MS - General Surgery, MCh</span>
+
+                                        <div class="doc-inner-wrap">
+                                            <div class="doc-ratting-boxes">
+                                                <ul class="doc ratting-view">
+                                                    <li><i class="fas fa-star filled"></i></li>
+                                                    <li><i class="fas fa-star filled"></i></li>
+                                                    <li><i class="fas fa-star filled"></i></li>
+                                                    <li><i class="fas fa-star filled"></i></li>
+                                                    <li><i class="fas fa-star"></i></li>
+                                                </ul>
+                                                <span class="doctor-review-list">(44 Reviews)</span>
+                                            </div>
+                                            <div class="doc-location"><i class="fas fa-map-marker-alt me-1 theme-cl"></i>G87P, Birmingham, UK</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="doctor-grid-footer">
+                                        <div class="doc-foot-first"><span class="av-status available">Available Today</span></div>
+                                        <div class="doc-foot-last"><a href="#" class="btn doc-book-btn">Book Now</a></div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <!-- Single -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                                <div class="doctor-grid-view">
+                                    <div class="doctor-grid-thumb">
+                                        <a href="single-listing-detail-4.html"><img src="assets/img/doc-5.jpg" class="img-fluid" alt=""></a>
+                                    </div>
+
+                                    <div class="doctor-grid-caption">
+                                        <div class="doc-title-wrap"><h4 class="doc-title verified"><a href="single-listing-detail-4.html">Dr. Michelle R. McIntyre</a></h4></div>
+                                        <span class="doc-designation">MBBS, MS - General Surgery, MCh</span>
+
+                                        <div class="doc-inner-wrap">
+                                            <div class="doc-ratting-boxes">
+                                                <ul class="doc ratting-view">
+                                                    <li><i class="fas fa-star filled"></i></li>
+                                                    <li><i class="fas fa-star filled"></i></li>
+                                                    <li><i class="fas fa-star filled"></i></li>
+                                                    <li><i class="fas fa-star filled"></i></li>
+                                                    <li><i class="fas fa-star"></i></li>
+                                                </ul>
+                                                <span class="doctor-review-list">(44 Reviews)</span>
+                                            </div>
+                                            <div class="doc-location"><i class="fas fa-map-marker-alt me-1 theme-cl"></i>G87P, Birmingham, UK</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="doctor-grid-footer">
+                                        <div class="doc-foot-first"><span class="av-status available">Available Today</span></div>
+                                        <div class="doc-foot-last"><a href="#" class="btn doc-book-btn">Book Now</a></div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <!-- Single -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                                <div class="doctor-grid-view">
+                                    <div class="doctor-grid-thumb">
+                                        <a href="single-listing-detail-4.html"><img src="assets/img/doc-6.jpg" class="img-fluid" alt=""></a>
+                                    </div>
+
+                                    <div class="doctor-grid-caption">
+                                        <div class="doc-title-wrap"><h4 class="doc-title verified"><a href="single-listing-detail-4.html">Dr. Mary F. Holliday</a></h4></div>
+                                        <span class="doc-designation">MBBS, MS - General Surgery, MCh</span>
+
+                                        <div class="doc-inner-wrap">
+                                            <div class="doc-ratting-boxes">
+                                                <ul class="doc ratting-view">
+                                                    <li><i class="fas fa-star filled"></i></li>
+                                                    <li><i class="fas fa-star filled"></i></li>
+                                                    <li><i class="fas fa-star filled"></i></li>
+                                                    <li><i class="fas fa-star filled"></i></li>
+                                                    <li><i class="fas fa-star"></i></li>
+                                                </ul>
+                                                <span class="doctor-review-list">(44 Reviews)</span>
+                                            </div>
+                                            <div class="doc-location"><i class="fas fa-map-marker-alt me-1 theme-cl"></i>G87P, Birmingham, UK</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="doctor-grid-footer">
+                                        <div class="doc-foot-first"><span class="av-status available">Available Today</span></div>
+                                        <div class="doc-foot-last"><a href="#" class="btn doc-book-btn">Book Now</a></div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <!-- Single -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                                <div class="doctor-grid-view">
+                                    <div class="doctor-grid-thumb">
+                                        <a href="single-listing-detail-4.html"><img src="assets/img/doc-7.jpg" class="img-fluid" alt=""></a>
+                                    </div>
+
+                                    <div class="doctor-grid-caption">
+                                        <div class="doc-title-wrap"><h4 class="doc-title verified"><a href="single-listing-detail-4.html">Dr. Dennis K. Bales</a></h4></div>
+                                        <span class="doc-designation">MBBS, MS - General Surgery, MCh</span>
+
+                                        <div class="doc-inner-wrap">
+                                            <div class="doc-ratting-boxes">
+                                                <ul class="doc ratting-view">
+                                                    <li><i class="fas fa-star filled"></i></li>
+                                                    <li><i class="fas fa-star filled"></i></li>
+                                                    <li><i class="fas fa-star filled"></i></li>
+                                                    <li><i class="fas fa-star filled"></i></li>
+                                                    <li><i class="fas fa-star"></i></li>
+                                                </ul>
+                                                <span class="doctor-review-list">(44 Reviews)</span>
+                                            </div>
+                                            <div class="doc-location"><i class="fas fa-map-marker-alt me-1 theme-cl"></i>G87P, Birmingham, UK</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="doctor-grid-footer">
+                                        <div class="doc-foot-first"><span class="av-status available">Available Today</span></div>
+                                        <div class="doc-foot-last"><a href="#" class="btn doc-book-btn">Book Now</a></div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <!-- Single -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                                <div class="doctor-grid-view">
+                                    <div class="doctor-grid-thumb">
+                                        <a href="single-listing-detail-4.html"><img src="assets/img/doc-8.jpg" class="img-fluid" alt=""></a>
+                                    </div>
+
+                                    <div class="doctor-grid-caption">
+                                        <div class="doc-title-wrap"><h4 class="doc-title verified"><a href="single-listing-detail-4.html">Dr. Donald S. Herring</a></h4></div>
+                                        <span class="doc-designation">MBBS, MS - General Surgery, MCh</span>
+
+                                        <div class="doc-inner-wrap">
+                                            <div class="doc-ratting-boxes">
+                                                <ul class="doc ratting-view">
+                                                    <li><i class="fas fa-star filled"></i></li>
+                                                    <li><i class="fas fa-star filled"></i></li>
+                                                    <li><i class="fas fa-star filled"></i></li>
+                                                    <li><i class="fas fa-star filled"></i></li>
+                                                    <li><i class="fas fa-star"></i></li>
+                                                </ul>
+                                                <span class="doctor-review-list">(44 Reviews)</span>
+                                            </div>
+                                            <div class="doc-location"><i class="fas fa-map-marker-alt me-1 theme-cl"></i>G87P, Birmingham, UK</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="doctor-grid-footer">
+                                        <div class="doc-foot-first"><span class="av-status available">Available Today</span></div>
+                                        <div class="doc-foot-last"><a href="#" class="btn doc-book-btn">Book Now</a></div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- /Doctor -->
+
+                    <!-- car -->
+                    <div class="tab-pane fade" id="car" role="tabpanel" aria-labelledby="car-tab">
+                        <div class="row justify-content-center">
+
+                            <!-- Single -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                                <div class="Goodup-grid-wrap">
+                                    <div class="Goodup-grid-upper">
+                                        <div class="Goodup-bookmark-btn"><button type="button"><i class="lni lni-heart-filled position-absolute"></i></button></div>
+                                        <div class="Goodup-pos ab-left">
+                                            <div class="Goodup-featured-tag">Featured</div>
+                                        </div>
+                                        <div class="Goodup-grid-thumb">
+                                            <a href="single-listing-detail-7.html" class="d-block text-center m-auto"><img src="assets/img/car/c-1.jpg" class="img-fluid" alt=""></a>
+                                        </div>
+                                        <div class="Goodup-rating overlay">
+                                            <div class="Goodup-prt-price">$<span>30,999</span></div>
+                                        </div>
+                                    </div>
+                                    <div class="Goodup-grid-fl-wrap">
+                                        <div class="Goodup-caption px-3 py-2">
+                                            <div class="Goodup-cates multi"><a href="search-car.html" class="cats-1">Hyundai</a></div>
+                                            <h4 class="mb-0 ft-medium medium"><a href="single-listing-detail-7.html" class="text-dark fs-md">New Hyundai Creta</a></h4>
+                                            <div class="Goodup-middle-caption mt-2">
+                                                <div class="Goodup-options-list">
+                                                    <ul class="no-list-style">
+                                                        <li><i class="fas fa-gas-pump"></i><span>Petrol</span></li>
+                                                        <li><i class="far fa-calendar-alt"></i><span>2018</span></li>
+                                                        <li><i class="fas fa-blender-phone"></i><span>20 KM/L</span></li>
+                                                        <li><i class="fab fa-accusoft"></i><span>500 CC</span></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="Goodup-grid-footer py-2 px-3">
+                                            <div class="Goodup-ft-first">
+                                                <div class="Goodup-location"><i class="fas fa-map-marker-alt me-1 theme-cl"></i>San Francisco, USA</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Single -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                                <div class="Goodup-grid-wrap">
+                                    <div class="Goodup-grid-upper">
+                                        <div class="Goodup-bookmark-btn"><button type="button"><i class="lni lni-heart-filled position-absolute"></i></button></div>
+                                        <div class="Goodup-grid-thumb">
+                                            <a href="single-listing-detail-7.html" class="d-block text-center m-auto"><img src="assets/img/car/c-2.jpg" class="img-fluid" alt=""></a>
+                                        </div>
+                                        <div class="Goodup-rating overlay">
+                                            <div class="Goodup-prt-price">$<span>22,500</span></div>
+                                        </div>
+                                    </div>
+                                    <div class="Goodup-grid-fl-wrap">
+                                        <div class="Goodup-caption px-3 py-2">
+                                            <div class="Goodup-cates multi"><a href="search-car.html" class="cats-1">Tata</a></div>
+                                            <h4 class="mb-0 ft-medium medium"><a href="single-listing-detail-7.html" class="text-dark fs-md">New Hyundai Creta<span class="verified-badge"><i class="fas fa-check-circle"></i></span></a></h4>
+                                            <div class="Goodup-middle-caption mt-2">
+                                                <div class="Goodup-options-list">
+                                                    <ul class="no-list-style">
+                                                        <li><i class="fas fa-gas-pump"></i><span>Diesel</span></li>
+                                                        <li><i class="far fa-calendar-alt"></i><span>2017</span></li>
+                                                        <li><i class="fas fa-blender-phone"></i><span>22 KM/L</span></li>
+                                                        <li><i class="fab fa-accusoft"></i><span>512 CC</span></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="Goodup-grid-footer py-2 px-3">
+                                            <div class="Goodup-ft-first">
+                                                <div class="Goodup-location"><i class="fas fa-map-marker-alt me-1 theme-cl"></i>San Francisco, USA</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Single -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                                <div class="Goodup-grid-wrap">
+                                    <div class="Goodup-grid-upper">
+                                        <div class="Goodup-bookmark-btn"><button type="button"><i class="lni lni-heart-filled position-absolute"></i></button></div>
+                                        <div class="Goodup-pos ab-left">
+                                            <div class="Goodup-featured-tag">Featured</div>
+                                        </div>
+                                        <div class="Goodup-grid-thumb">
+                                            <a href="single-listing-detail-7.html" class="d-block text-center m-auto"><img src="assets/img/car/c-3.jpg" class="img-fluid" alt=""></a>
+                                        </div>
+                                        <div class="Goodup-rating overlay">
+                                            <div class="Goodup-prt-price">$<span>40,000</span></div>
+                                        </div>
+                                    </div>
+                                    <div class="Goodup-grid-fl-wrap">
+                                        <div class="Goodup-caption px-3 py-2">
+                                            <div class="Goodup-cates multi"><a href="search-car.html" class="cats-1">Maruti</a></div>
+                                            <h4 class="mb-0 ft-medium medium"><a href="single-listing-detail-7.html" class="text-dark fs-md">New Hyundai Creta</a></h4>
+                                            <div class="Goodup-middle-caption mt-2">
+                                                <div class="Goodup-options-list">
+                                                    <ul class="no-list-style">
+                                                        <li><i class="fas fa-gas-pump"></i><span>Petrol</span></li>
+                                                        <li><i class="far fa-calendar-alt"></i><span>2013</span></li>
+                                                        <li><i class="fas fa-blender-phone"></i><span>26 KM/L</span></li>
+                                                        <li><i class="fab fa-accusoft"></i><span>700 CC</span></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="Goodup-grid-footer py-2 px-3">
+                                            <div class="Goodup-ft-first">
+                                                <div class="Goodup-location"><i class="fas fa-map-marker-alt me-1 theme-cl"></i>San Francisco, USA</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Single -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                                <div class="Goodup-grid-wrap">
+                                    <div class="Goodup-grid-upper">
+                                        <div class="Goodup-bookmark-btn"><button type="button"><i class="lni lni-heart-filled position-absolute"></i></button></div>
+                                        <div class="Goodup-grid-thumb">
+                                            <a href="single-listing-detail-7.html" class="d-block text-center m-auto"><img src="assets/img/car/c-4.jpg" class="img-fluid" alt=""></a>
+                                        </div>
+                                        <div class="Goodup-rating overlay">
+                                            <div class="Goodup-prt-price">$<span>32,999</span></div>
+                                        </div>
+                                    </div>
+                                    <div class="Goodup-grid-fl-wrap">
+                                        <div class="Goodup-caption px-3 py-2">
+                                            <div class="Goodup-cates multi"><a href="search-car.html" class="cats-1">Hyundai</a></div>
+                                            <h4 class="mb-0 ft-medium medium"><a href="single-listing-detail-7.html" class="text-dark fs-md">New Hyundai Creta<span class="verified-badge"><i class="fas fa-check-circle"></i></span></a></h4>
+                                            <div class="Goodup-middle-caption mt-2">
+                                                <div class="Goodup-options-list">
+                                                    <ul class="no-list-style">
+                                                        <li><i class="fas fa-gas-pump"></i><span>Diesel</span></li>
+                                                        <li><i class="far fa-calendar-alt"></i><span>2017</span></li>
+                                                        <li><i class="fas fa-blender-phone"></i><span>18 KM/L</span></li>
+                                                        <li><i class="fab fa-accusoft"></i><span>450 CC</span></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="Goodup-grid-footer py-2 px-3">
+                                            <div class="Goodup-ft-first">
+                                                <div class="Goodup-location"><i class="fas fa-map-marker-alt me-1 theme-cl"></i>San Francisco, USA</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Single -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                                <div class="Goodup-grid-wrap">
+                                    <div class="Goodup-grid-upper">
+                                        <div class="Goodup-bookmark-btn"><button type="button"><i class="lni lni-heart-filled position-absolute"></i></button></div>
+                                        <div class="Goodup-grid-thumb">
+                                            <a href="single-listing-detail-7.html" class="d-block text-center m-auto"><img src="assets/img/car/c-5.jpg" class="img-fluid" alt=""></a>
+                                        </div>
+                                        <div class="Goodup-rating overlay">
+                                            <div class="Goodup-prt-price">$<span>50,000</span></div>
+                                        </div>
+                                    </div>
+                                    <div class="Goodup-grid-fl-wrap">
+                                        <div class="Goodup-caption px-3 py-2">
+                                            <div class="Goodup-cates multi"><a href="search-car.html" class="cats-1">Nexon</a></div>
+                                            <h4 class="mb-0 ft-medium medium"><a href="single-listing-detail-7.html" class="text-dark fs-md">New Hyundai Creta</a></h4>
+                                            <div class="Goodup-middle-caption mt-2">
+                                                <div class="Goodup-options-list">
+                                                    <ul class="no-list-style">
+                                                        <li><i class="fas fa-gas-pump"></i><span>Petrol</span></li>
+                                                        <li><i class="far fa-calendar-alt"></i><span>2020</span></li>
+                                                        <li><i class="fas fa-blender-phone"></i><span>22 KM/L</span></li>
+                                                        <li><i class="fab fa-accusoft"></i><span>600 CC</span></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="Goodup-grid-footer py-2 px-3">
+                                            <div class="Goodup-ft-first">
+                                                <div class="Goodup-location"><i class="fas fa-map-marker-alt me-1 theme-cl"></i>San Francisco, USA</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Single -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                                <div class="Goodup-grid-wrap">
+                                    <div class="Goodup-grid-upper">
+                                        <div class="Goodup-bookmark-btn"><button type="button"><i class="lni lni-heart-filled position-absolute"></i></button></div>
+                                        <div class="Goodup-pos ab-left">
+                                            <div class="Goodup-featured-tag">Featured</div>
+                                        </div>
+                                        <div class="Goodup-grid-thumb">
+                                            <a href="single-listing-detail-7.html" class="d-block text-center m-auto"><img src="assets/img/car/c-6.jpg" class="img-fluid" alt=""></a>
+                                        </div>
+                                        <div class="Goodup-rating overlay">
+                                            <div class="Goodup-prt-price">$<span>35,500</span></div>
+                                        </div>
+                                    </div>
+                                    <div class="Goodup-grid-fl-wrap">
+                                        <div class="Goodup-caption px-3 py-2">
+                                            <div class="Goodup-cates multi"><a href="search-car.html" class="cats-1">Maruti</a></div>
+                                            <h4 class="mb-0 ft-medium medium"><a href="single-listing-detail-7.html" class="text-dark fs-md">New Hyundai Creta</a></h4>
+                                            <div class="Goodup-middle-caption mt-2">
+                                                <div class="Goodup-options-list">
+                                                    <ul class="no-list-style">
+                                                        <li><i class="fas fa-gas-pump"></i><span>Diesel</span></li>
+                                                        <li><i class="far fa-calendar-alt"></i><span>2012</span></li>
+                                                        <li><i class="fas fa-blender-phone"></i><span>21 KM/L</span></li>
+                                                        <li><i class="fab fa-accusoft"></i><span>520 CC</span></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="Goodup-grid-footer py-2 px-3">
+                                            <div class="Goodup-ft-first">
+                                                <div class="Goodup-location"><i class="fas fa-map-marker-alt me-1 theme-cl"></i>San Francisco, USA</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Single -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                                <div class="Goodup-grid-wrap">
+                                    <div class="Goodup-grid-upper">
+                                        <div class="Goodup-bookmark-btn"><button type="button"><i class="lni lni-heart-filled position-absolute"></i></button></div>
+                                        <div class="Goodup-grid-thumb">
+                                            <a href="single-listing-detail-7.html" class="d-block text-center m-auto"><img src="assets/img/car/c-7.jpg" class="img-fluid" alt=""></a>
+                                        </div>
+                                        <div class="Goodup-rating overlay">
+                                            <div class="Goodup-prt-price">$<span>25,000</span></div>
+                                        </div>
+                                    </div>
+                                    <div class="Goodup-grid-fl-wrap">
+                                        <div class="Goodup-caption px-3 py-2">
+                                            <div class="Goodup-cates multi"><a href="search-car.html" class="cats-1">Tata</a></div>
+                                            <h4 class="mb-0 ft-medium medium"><a href="single-listing-detail-7.html" class="text-dark fs-md">New Hyundai Creta<span class="verified-badge"><i class="fas fa-check-circle"></i></span></a></h4>
+                                            <div class="Goodup-middle-caption mt-2">
+                                                <div class="Goodup-options-list">
+                                                    <ul class="no-list-style">
+                                                        <li><i class="fas fa-gas-pump"></i><span>Diesel</span></li>
+                                                        <li><i class="far fa-calendar-alt"></i><span>2016</span></li>
+                                                        <li><i class="fas fa-blender-phone"></i><span>24 KM/L</span></li>
+                                                        <li><i class="fab fa-accusoft"></i><span>450 CC</span></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="Goodup-grid-footer py-2 px-3">
+                                            <div class="Goodup-ft-first">
+                                                <div class="Goodup-location"><i class="fas fa-map-marker-alt me-1 theme-cl"></i>San Francisco, USA</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Single -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                                <div class="Goodup-grid-wrap">
+                                    <div class="Goodup-grid-upper">
+                                        <div class="Goodup-bookmark-btn"><button type="button"><i class="lni lni-heart-filled position-absolute"></i></button></div>
+                                        <div class="Goodup-pos ab-left">
+                                            <div class="Goodup-featured-tag">Featured</div>
+                                        </div>
+                                        <div class="Goodup-grid-thumb">
+                                            <a href="single-listing-detail-7.html" class="d-block text-center m-auto"><img src="assets/img/car/c-8.jpg" class="img-fluid" alt=""></a>
+                                        </div>
+                                        <div class="Goodup-rating overlay">
+                                            <div class="Goodup-prt-price">$<span>34,999</span></div>
+                                        </div>
+                                    </div>
+                                    <div class="Goodup-grid-fl-wrap">
+                                        <div class="Goodup-caption px-3 py-2">
+                                            <div class="Goodup-cates multi"><a href="search-car.html" class="cats-1">Maruti</a></div>
+                                            <h4 class="mb-0 ft-medium medium"><a href="single-listing-detail-7.html" class="text-dark fs-md">New Hyundai Creta</a></h4>
+                                            <div class="Goodup-middle-caption mt-2">
+                                                <div class="Goodup-options-list">
+                                                    <ul class="no-list-style">
+                                                        <li><i class="fas fa-gas-pump"></i><span>Petrol</span></li>
+                                                        <li><i class="far fa-calendar-alt"></i><span>2019</span></li>
+                                                        <li><i class="fas fa-blender-phone"></i><span>23 KM/L</span></li>
+                                                        <li><i class="fab fa-accusoft"></i><span>540 CC</span></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="Goodup-grid-footer py-2 px-3">
+                                            <div class="Goodup-ft-first">
+                                                <div class="Goodup-location"><i class="fas fa-map-marker-alt me-1 theme-cl"></i>San Francisco, USA</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- /car -->
+
+                    <!-- Real -->
+                    <div class="tab-pane fade" id="real" role="tabpanel" aria-labelledby="real-tab">
+                        <div class="row justify-content-center">
+
+                            <!-- Single -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                                <div class="Goodup-grid-wrap">
+                                    <div class="Goodup-grid-upper">
+                                        <div class="Goodup-bookmark-btn"><button type="button"><i class="lni lni-heart-filled position-absolute"></i></button></div>
+                                        <div class="Goodup-pos ab-left">
+                                            <div class="Goodup-status open me-2">For Rent</div>
+                                            <div class="Goodup-featured-tag">Featured</div>
+                                        </div>
+                                        <div class="Goodup-grid-thumb">
+                                            <a href="single-listing-detail-5.html" class="d-block text-center m-auto"><img src="assets/img/real/r-1.jpg" class="img-fluid" alt=""></a>
+                                        </div>
+                                        <div class="Goodup-rating overlay">
+                                            <div class="Goodup-prt-price">$<span>30,999</span></div>
+                                        </div>
+                                    </div>
+                                    <div class="Goodup-grid-fl-wrap">
+                                        <div class="Goodup-caption px-3 py-2">
+                                            <div class="Goodup-author"><a href="author-detail.html"><img src="assets/img/t-1.png" class="img-fluid circle" alt=""></a></div>
+                                            <div class="Goodup-cates multi"><span class="Goodup-apr-rates"><i class="fas fa-star"></i>4.8</span><a href="search-property.html" class="cats-1">Apartment</a></div>
+                                            <h4 class="mb-0 ft-medium medium"><a href="single-listing-detail-5.html" class="text-dark fs-md">Liverpool London, LC345AC<span class="verified-badge"><i class="fas fa-check-circle"></i></span></a></h4>
+                                            <div class="Goodup-middle-caption mt-2">
+                                                <div class="Goodup-options-list">
+                                                    <ul class="no-list-style">
+                                                        <li><i class="fas fa-bed"></i><span>3 Beds</span></li>
+                                                        <li><i class="fas fa-bath"></i><span>2 Baths</span></li>
+                                                        <li><i class="fas fa-clone"></i><span>1.2k sqft</span></li>
+                                                        <li><i class="fas fa-calendar"></i><span>3 Days Ago</span></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="Goodup-grid-footer py-2 px-3">
+                                            <div class="Goodup-ft-first">
+                                                <div class="Goodup-location"><i class="fas fa-map-marker-alt me-1 theme-cl"></i>San Francisco, USA</div>
+                                            </div>
+                                            <div class="Goodup-ft-last">
+                                                <div class="Goodup-inline">
+                                                    <div class="Goodup-bookmark-btn"><button type="button"><i class="lni lni-envelope position-absolute"></i></button></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Single -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                                <div class="Goodup-grid-wrap">
+                                    <div class="Goodup-grid-upper">
+                                        <div class="Goodup-bookmark-btn"><button type="button"><i class="lni lni-heart-filled position-absolute"></i></button></div>
+                                        <div class="Goodup-pos ab-left">
+                                            <div class="Goodup-status me-2">For Sale</div>
+                                        </div>
+                                        <div class="Goodup-grid-thumb">
+                                            <a href="single-listing-detail-5.html" class="d-block text-center m-auto"><img src="assets/img/real/r-2.jpg" class="img-fluid" alt=""></a>
+                                        </div>
+                                        <div class="Goodup-rating overlay">
+                                            <div class="Goodup-prt-price">$<span>44,000</span></div>
+                                        </div>
+                                    </div>
+                                    <div class="Goodup-grid-fl-wrap">
+                                        <div class="Goodup-caption px-3 py-2">
+                                            <div class="Goodup-author"><a href="author-detail.html"><img src="assets/img/t-2.png" class="img-fluid circle" alt=""></a></div>
+                                            <div class="Goodup-cates multi"><span class="Goodup-apr-rates"><i class="fas fa-star"></i>4.7</span><a href="search-property.html" class="cats-1">Condos</a></div>
+                                            <h4 class="mb-0 ft-medium medium"><a href="single-listing-detail-5.html" class="text-dark fs-md">Montreal Canada, HAQC445<span class="verified-badge"><i class="fas fa-check-circle"></i></span></a></h4>
+                                            <div class="Goodup-middle-caption mt-2">
+                                                <div class="Goodup-options-list">
+                                                    <ul class="no-list-style">
+                                                        <li><i class="fas fa-bed"></i><span>3 Beds</span></li>
+                                                        <li><i class="fas fa-bath"></i><span>2 Baths</span></li>
+                                                        <li><i class="fas fa-clone"></i><span>1.2k sqft</span></li>
+                                                        <li><i class="fas fa-calendar"></i><span>3 Days Ago</span></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="Goodup-grid-footer py-2 px-3">
+                                            <div class="Goodup-ft-first">
+                                                <div class="Goodup-location"><i class="fas fa-map-marker-alt me-1 theme-cl"></i>Liverpool, London UK</div>
+                                            </div>
+                                            <div class="Goodup-ft-last">
+                                                <div class="Goodup-inline">
+                                                    <div class="Goodup-bookmark-btn"><button type="button"><i class="lni lni-envelope position-absolute"></i></button></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Single -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                                <div class="Goodup-grid-wrap">
+                                    <div class="Goodup-grid-upper">
+                                        <div class="Goodup-bookmark-btn"><button type="button"><i class="lni lni-heart-filled position-absolute"></i></button></div>
+                                        <div class="Goodup-pos ab-left">
+                                            <div class="Goodup-status open me-2">For Rent</div>
+                                            <div class="Goodup-featured-tag">Featured</div>
+                                        </div>
+                                        <div class="Goodup-grid-thumb">
+                                            <a href="single-listing-detail-5.html" class="d-block text-center m-auto"><img src="assets/img/real/r-3.jpg" class="img-fluid" alt=""></a>
+                                        </div>
+                                        <div class="Goodup-rating overlay">
+                                            <div class="Goodup-prt-price">$<span>37,999</span></div>
+                                        </div>
+                                    </div>
+                                    <div class="Goodup-grid-fl-wrap">
+                                        <div class="Goodup-caption px-3 py-2">
+                                            <div class="Goodup-author"><a href="author-detail.html"><img src="assets/img/t-3.png" class="img-fluid circle" alt=""></a></div>
+                                            <div class="Goodup-cates multi"><span class="Goodup-apr-rates"><i class="fas fa-star"></i>4.5</span><a href="search-property.html" class="cats-1">Villa</a></div>
+                                            <h4 class="mb-0 ft-medium medium"><a href="single-listing-detail-5.html" class="text-dark fs-md">Huwai Denever USA, AWE789O<span class="verified-badge"><i class="fas fa-check-circle"></i></span></a></h4>
+                                            <div class="Goodup-middle-caption mt-2">
+                                                <div class="Goodup-options-list">
+                                                    <ul class="no-list-style">
+                                                        <li><i class="fas fa-bed"></i><span>3 Beds</span></li>
+                                                        <li><i class="fas fa-bath"></i><span>2 Baths</span></li>
+                                                        <li><i class="fas fa-clone"></i><span>1.2k sqft</span></li>
+                                                        <li><i class="fas fa-calendar"></i><span>3 Days Ago</span></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="Goodup-grid-footer py-2 px-3">
+                                            <div class="Goodup-ft-first">
+                                                <div class="Goodup-location"><i class="fas fa-map-marker-alt me-1 theme-cl"></i>California, Canada</div>
+                                            </div>
+                                            <div class="Goodup-ft-last">
+                                                <div class="Goodup-inline">
+                                                    <div class="Goodup-bookmark-btn"><button type="button"><i class="lni lni-envelope position-absolute"></i></button></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Single -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                                <div class="Goodup-grid-wrap">
+                                    <div class="Goodup-grid-upper">
+                                        <div class="Goodup-bookmark-btn"><button type="button"><i class="lni lni-heart-filled position-absolute"></i></button></div>
+                                        <div class="Goodup-pos ab-left">
+                                            <div class="Goodup-status me-2">For Sale</div>
+                                        </div>
+                                        <div class="Goodup-grid-thumb">
+                                            <a href="single-listing-detail-5.html" class="d-block text-center m-auto"><img src="assets/img/real/r-4.jpg" class="img-fluid" alt=""></a>
+                                        </div>
+                                        <div class="Goodup-rating overlay">
+                                            <div class="Goodup-prt-price">$<span>45,000K</span></div>
+                                        </div>
+                                    </div>
+                                    <div class="Goodup-grid-fl-wrap">
+                                        <div class="Goodup-caption px-3 py-2">
+                                            <div class="Goodup-author"><a href="author-detail.html"><img src="assets/img/t-4.png" class="img-fluid circle" alt=""></a></div>
+                                            <div class="Goodup-cates multi"><span class="Goodup-apr-rates"><i class="fas fa-star"></i>4.9</span><a href="search-property.html" class="cats-1">House</a></div>
+                                            <h4 class="mb-0 ft-medium medium"><a href="single-listing-detail-5.html" class="text-dark fs-md">Alameda Canada, SHQT45O<span class="verified-badge"><i class="fas fa-check-circle"></i></span></a></h4>
+                                            <div class="Goodup-middle-caption mt-2">
+                                                <div class="Goodup-options-list">
+                                                    <ul class="no-list-style">
+                                                        <li><i class="fas fa-bed"></i><span>3 Beds</span></li>
+                                                        <li><i class="fas fa-bath"></i><span>2 Baths</span></li>
+                                                        <li><i class="fas fa-clone"></i><span>1.2k sqft</span></li>
+                                                        <li><i class="fas fa-calendar"></i><span>3 Days Ago</span></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="Goodup-grid-footer py-2 px-3">
+                                            <div class="Goodup-ft-first">
+                                                <div class="Goodup-location"><i class="fas fa-map-marker-alt me-1 theme-cl"></i>104 Washington, USA</div>
+                                            </div>
+                                            <div class="Goodup-ft-last">
+                                                <div class="Goodup-inline">
+                                                    <div class="Goodup-bookmark-btn"><button type="button"><i class="lni lni-envelope position-absolute"></i></button></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Single -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                                <div class="Goodup-grid-wrap">
+                                    <div class="Goodup-grid-upper">
+                                        <div class="Goodup-bookmark-btn"><button type="button"><i class="lni lni-heart-filled position-absolute"></i></button></div>
+                                        <div class="Goodup-pos ab-left">
+                                            <div class="Goodup-status open me-2">For Rent</div>
+                                        </div>
+                                        <div class="Goodup-grid-thumb">
+                                            <a href="single-listing-detail-5.html" class="d-block text-center m-auto"><img src="assets/img/real/r-5.jpg" class="img-fluid" alt=""></a>
+                                        </div>
+                                        <div class="Goodup-rating overlay">
+                                            <div class="Goodup-prt-price">$<span>35,000</span></div>
+                                        </div>
+                                    </div>
+                                    <div class="Goodup-grid-fl-wrap">
+                                        <div class="Goodup-caption px-3 py-2">
+                                            <div class="Goodup-author"><a href="author-detail.html"><img src="assets/img/t-5.png" class="img-fluid circle" alt=""></a></div>
+                                            <div class="Goodup-cates multi"><span class="Goodup-apr-rates"><i class="fas fa-star"></i>4.6</span><a href="search-property.html" class="cats-1">Building</a></div>
+                                            <h4 class="mb-0 ft-medium medium"><a href="single-listing-detail-5.html" class="text-dark fs-md">Henever Canada, QWUI98<span class="verified-badge"><i class="fas fa-check-circle"></i></span></a></h4>
+                                            <div class="Goodup-middle-caption mt-2">
+                                                <div class="Goodup-options-list">
+                                                    <ul class="no-list-style">
+                                                        <li><i class="fas fa-bed"></i><span>3 Beds</span></li>
+                                                        <li><i class="fas fa-bath"></i><span>2 Baths</span></li>
+                                                        <li><i class="fas fa-clone"></i><span>1.2k sqft</span></li>
+                                                        <li><i class="fas fa-calendar"></i><span>3 Days Ago</span></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="Goodup-grid-footer py-2 px-3">
+                                            <div class="Goodup-ft-first">
+                                                <div class="Goodup-location"><i class="fas fa-map-marker-alt me-1 theme-cl"></i>Old Denver, USA</div>
+                                            </div>
+                                            <div class="Goodup-ft-last">
+                                                <div class="Goodup-inline">
+                                                    <div class="Goodup-bookmark-btn"><button type="button"><i class="lni lni-envelope position-absolute"></i></button></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Single -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                                <div class="Goodup-grid-wrap">
+                                    <div class="Goodup-grid-upper">
+                                        <div class="Goodup-bookmark-btn"><button type="button"><i class="lni lni-heart-filled position-absolute"></i></button></div>
+                                        <div class="Goodup-pos ab-left">
+                                            <div class="Goodup-status open me-2">For Rent</div>
+                                            <div class="Goodup-featured-tag">Featured</div>
+                                        </div>
+                                        <div class="Goodup-grid-thumb">
+                                            <a href="single-listing-detail-5.html" class="d-block text-center m-auto"><img src="assets/img/real/r-6.jpg" class="img-fluid" alt=""></a>
+                                        </div>
+                                        <div class="Goodup-rating overlay">
+                                            <div class="Goodup-prt-price">$<span>42,000</span></div>
+                                        </div>
+                                    </div>
+                                    <div class="Goodup-grid-fl-wrap">
+                                        <div class="Goodup-caption px-3 py-2">
+                                            <div class="Goodup-author"><a href="author-detail.html"><img src="assets/img/t-6.png" class="img-fluid circle" alt=""></a></div>
+                                            <div class="Goodup-cates multi"><span class="Goodup-apr-rates"><i class="fas fa-star"></i>4.2</span><a href="search-property.html" class="cats-1">Apartment</a></div>
+                                            <h4 class="mb-0 ft-medium medium"><a href="single-listing-detail-5.html" class="text-dark fs-md">Barghimbar USA, ERIO098<span class="verified-badge"><i class="fas fa-check-circle"></i></span></a></h4>
+                                            <div class="Goodup-middle-caption mt-2">
+                                                <div class="Goodup-options-list">
+                                                    <ul class="no-list-style">
+                                                        <li><i class="fas fa-bed"></i><span>3 Beds</span></li>
+                                                        <li><i class="fas fa-bath"></i><span>2 Baths</span></li>
+                                                        <li><i class="fas fa-clone"></i><span>1.2k sqft</span></li>
+                                                        <li><i class="fas fa-calendar"></i><span>3 Days Ago</span></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="Goodup-grid-footer py-2 px-3">
+                                            <div class="Goodup-ft-first">
+                                                <div class="Goodup-location"><i class="fas fa-map-marker-alt me-1 theme-cl"></i>Montreal, Australia</div>
+                                            </div>
+                                            <div class="Goodup-ft-last">
+                                                <div class="Goodup-inline">
+                                                    <div class="Goodup-bookmark-btn"><button type="button"><i class="lni lni-envelope position-absolute"></i></button></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Single -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                                <div class="Goodup-grid-wrap">
+                                    <div class="Goodup-grid-upper">
+                                        <div class="Goodup-bookmark-btn"><button type="button"><i class="lni lni-heart-filled position-absolute"></i></button></div>
+                                        <div class="Goodup-pos ab-left">
+                                            <div class="Goodup-status me-2">For Sale</div>
+                                        </div>
+                                        <div class="Goodup-grid-thumb">
+                                            <a href="single-listing-detail-5.html" class="d-block text-center m-auto"><img src="assets/img/real/r-7.jpg" class="img-fluid" alt=""></a>
+                                        </div>
+                                        <div class="Goodup-rating overlay">
+                                            <div class="Goodup-prt-price">$<span>31,950</span></div>
+                                        </div>
+                                    </div>
+                                    <div class="Goodup-grid-fl-wrap">
+                                        <div class="Goodup-caption px-3 py-2">
+                                            <div class="Goodup-author"><a href="author-detail.html"><img src="assets/img/t-7.png" class="img-fluid circle" alt=""></a></div>
+                                            <div class="Goodup-cates multi"><span class="Goodup-apr-rates"><i class="fas fa-star"></i>4.5</span><a href="search-property.html" class="cats-1">Villa</a></div>
+                                            <h4 class="mb-0 ft-medium medium"><a href="single-listing-detail-5.html" class="text-dark fs-md">Burbank Canada, ECH15462<span class="verified-badge"><i class="fas fa-check-circle"></i></span></a></h4>
+                                            <div class="Goodup-middle-caption mt-2">
+                                                <div class="Goodup-options-list">
+                                                    <ul class="no-list-style">
+                                                        <li><i class="fas fa-bed"></i><span>3 Beds</span></li>
+                                                        <li><i class="fas fa-bath"></i><span>2 Baths</span></li>
+                                                        <li><i class="fas fa-clone"></i><span>1.2k sqft</span></li>
+                                                        <li><i class="fas fa-calendar"></i><span>3 Days Ago</span></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="Goodup-grid-footer py-2 px-3">
+                                            <div class="Goodup-ft-first">
+                                                <div class="Goodup-location"><i class="fas fa-map-marker-alt me-1 theme-cl"></i>California, USA</div>
+                                            </div>
+                                            <div class="Goodup-ft-last">
+                                                <div class="Goodup-inline">
+                                                    <div class="Goodup-bookmark-btn"><button type="button"><i class="lni lni-envelope position-absolute"></i></button></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Single -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                                <div class="Goodup-grid-wrap">
+                                    <div class="Goodup-grid-upper">
+                                        <div class="Goodup-bookmark-btn"><button type="button"><i class="lni lni-heart-filled position-absolute"></i></button></div>
+                                        <div class="Goodup-pos ab-left">
+                                            <div class="Goodup-status open me-2">For Rent</div>
+                                            <div class="Goodup-featured-tag">Featured</div>
+                                        </div>
+                                        <div class="Goodup-grid-thumb">
+                                            <a href="single-listing-detail-5.html" class="d-block text-center m-auto"><img src="assets/img/real/r-1.jpg" class="img-fluid" alt=""></a>
+                                        </div>
+                                        <div class="Goodup-rating overlay">
+                                            <div class="Goodup-prt-price">$<span>46,999</span></div>
+                                        </div>
+                                    </div>
+                                    <div class="Goodup-grid-fl-wrap">
+                                        <div class="Goodup-caption px-3 py-2">
+                                            <div class="Goodup-author"><a href="author-detail.html"><img src="assets/img/t-8.png" class="img-fluid circle" alt=""></a></div>
+                                            <div class="Goodup-cates multi"><span class="Goodup-apr-rates"><i class="fas fa-star"></i>4.7</span><a href="search-property.html" class="cats-1">Work Space</a></div>
+                                            <h4 class="mb-0 ft-medium medium"><a href="single-listing-detail-5.html" class="text-dark fs-md">Emeryville Green Vally<span class="verified-badge"><i class="fas fa-check-circle"></i></span></a></h4>
+                                            <div class="Goodup-middle-caption mt-2">
+                                                <div class="Goodup-options-list">
+                                                    <ul class="no-list-style">
+                                                        <li><i class="fas fa-bed"></i><span>3 Beds</span></li>
+                                                        <li><i class="fas fa-bath"></i><span>2 Baths</span></li>
+                                                        <li><i class="fas fa-clone"></i><span>1.2k sqft</span></li>
+                                                        <li><i class="fas fa-calendar"></i><span>3 Days Ago</span></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="Goodup-grid-footer py-2 px-3">
+                                            <div class="Goodup-ft-first">
+                                                <div class="Goodup-location"><i class="fas fa-map-marker-alt me-1 theme-cl"></i>Meltron Silver, UK</div>
+                                            </div>
+                                            <div class="Goodup-ft-last">
+                                                <div class="Goodup-inline">
+                                                    <div class="Goodup-bookmark-btn"><button type="button"><i class="lni lni-envelope position-absolute"></i></button></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- /Real -->
+
+                    <!-- Hotels -->
+                    <div class="tab-pane fade" id="hotels" role="tabpanel" aria-labelledby="hotels-tab">
+                        <div class="row justify-content-center">
+
+                            <!-- Single -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                                <div class="Goodup-grid-wrap">
+                                    <div class="Goodup-grid-upper">
+                                        <div class="Goodup-bookmark-btn"><button type="button"><i class="lni lni-heart-filled position-absolute"></i></button></div>
+                                        <div class="Goodup-pos ab-left">
+                                            <div class="Goodup-featured-tag">Featured</div>
+                                        </div>
+                                        <div class="Goodup-grid-thumb">
+                                            <a href="single-listing-detail-8.html" class="d-block text-center m-auto"><img src="assets/img/rooms/1.jpg" class="img-fluid" alt=""></a>
+                                        </div>
+                                        <div class="Goodup-rating overlay">
+                                            <div class="Goodup-pr-average high">4.2</div>
+                                            <div class="Goodup-aldeio">
+                                                <div class="Goodup-rates">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                                <div class="Goodup-all-review"><span>42 Reviews</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="Goodup-grid-fl-wrap">
+                                        <div class="Goodup-caption px-3 py-2">
+                                            <div class="Goodup-room-price"><span>$199</span>per night</div>
+                                            <h4 class="mb-0 ft-medium medium mb-0"><a href="single-listing-detail-8.html" class="text-dark fs-md">3112 Comfort Deluxe Space<span class="verified-badge"><i class="fas fa-check-circle"></i></span></a></h4>
+                                            <div class="Goodup-distance">1.5 km to Town Center</div>
+                                            <div class="Goodup-middle-caption mt-3">
+                                                <div class="Goodup-facilities-wrap Goodup-flx mb-0">
+                                                    <div class="Goodup-facility-list">
+                                                        <ul class="no-list-style">
+                                                            <li><i class="fas fa-wifi"></i></li>
+                                                            <li><i class="fas fa-swimming-pool"></i></li>
+                                                            <li><i class="fas fa-parking"></i></li>
+                                                            <li><i class="fas fa-dog"></i></li>
+                                                            <li><i class="fas fa-fan"></i></li>
+                                                            <li><i class="fas fa-wine-glass-alt"></i></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="Goodup-booking-button">
+                                                    <a href="#" class="Goodup-btn-book">Book Now</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Single -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                                <div class="Goodup-grid-wrap">
+                                    <div class="Goodup-grid-upper">
+                                        <div class="Goodup-bookmark-btn"><button type="button"><i class="lni lni-heart-filled position-absolute"></i></button></div>
+                                        <div class="Goodup-pos ab-left">
+                                            <div class="Goodup-status offer me-2">-20% Off</div>
+                                        </div>
+                                        <div class="Goodup-grid-thumb">
+                                            <a href="single-listing-detail-8.html" class="d-block text-center m-auto"><img src="assets/img/rooms/2.jpg" class="img-fluid" alt=""></a>
+                                        </div>
+                                        <div class="Goodup-rating overlay">
+                                            <div class="Goodup-pr-average high">4.2</div>
+                                            <div class="Goodup-aldeio">
+                                                <div class="Goodup-rates">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                                <div class="Goodup-all-review"><span>42 Reviews</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="Goodup-grid-fl-wrap">
+                                        <div class="Goodup-caption px-3 py-2">
+                                            <div class="Goodup-room-price"><span>$199</span>per night</div>
+                                            <h4 class="mb-0 ft-medium medium mb-0"><a href="single-listing-detail-8.html" class="text-dark fs-md">3112 Comfort Deluxe Space<span class="verified-badge"><i class="fas fa-check-circle"></i></span></a></h4>
+                                            <div class="Goodup-distance">1.5 km to Town Center</div>
+                                            <div class="Goodup-middle-caption mt-3">
+                                                <div class="Goodup-facilities-wrap Goodup-flx mb-0">
+                                                    <div class="Goodup-facility-list">
+                                                        <ul class="no-list-style">
+                                                            <li><i class="fas fa-wifi"></i></li>
+                                                            <li><i class="fas fa-swimming-pool"></i></li>
+                                                            <li><i class="fas fa-parking"></i></li>
+                                                            <li><i class="fas fa-dog"></i></li>
+                                                            <li><i class="fas fa-fan"></i></li>
+                                                            <li><i class="fas fa-wine-glass-alt"></i></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="Goodup-booking-button">
+                                                    <a href="#" class="Goodup-btn-book">Book Now</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Single -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                                <div class="Goodup-grid-wrap">
+                                    <div class="Goodup-grid-upper">
+                                        <div class="Goodup-bookmark-btn"><button type="button"><i class="lni lni-heart-filled position-absolute"></i></button></div>
+                                        <div class="Goodup-pos ab-left">
+                                            <div class="Goodup-featured-tag">Featured</div>
+                                        </div>
+                                        <div class="Goodup-grid-thumb">
+                                            <a href="single-listing-detail-8.html" class="d-block text-center m-auto"><img src="assets/img/rooms/3.jpg" class="img-fluid" alt=""></a>
+                                        </div>
+                                        <div class="Goodup-rating overlay">
+                                            <div class="Goodup-pr-average high">4.2</div>
+                                            <div class="Goodup-aldeio">
+                                                <div class="Goodup-rates">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                                <div class="Goodup-all-review"><span>42 Reviews</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="Goodup-grid-fl-wrap">
+                                        <div class="Goodup-caption px-3 py-2">
+                                            <div class="Goodup-room-price"><span>$199</span>per night</div>
+                                            <h4 class="mb-0 ft-medium medium mb-0"><a href="single-listing-detail-8.html" class="text-dark fs-md">3112 Comfort Deluxe Space<span class="verified-badge"><i class="fas fa-check-circle"></i></span></a></h4>
+                                            <div class="Goodup-distance">1.5 km to Town Center</div>
+                                            <div class="Goodup-middle-caption mt-3">
+                                                <div class="Goodup-facilities-wrap Goodup-flx mb-0">
+                                                    <div class="Goodup-facility-list">
+                                                        <ul class="no-list-style">
+                                                            <li><i class="fas fa-wifi"></i></li>
+                                                            <li><i class="fas fa-swimming-pool"></i></li>
+                                                            <li><i class="fas fa-parking"></i></li>
+                                                            <li><i class="fas fa-dog"></i></li>
+                                                            <li><i class="fas fa-fan"></i></li>
+                                                            <li><i class="fas fa-wine-glass-alt"></i></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="Goodup-booking-button">
+                                                    <a href="#" class="Goodup-btn-book">Book Now</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Single -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                                <div class="Goodup-grid-wrap">
+                                    <div class="Goodup-grid-upper">
+                                        <div class="Goodup-bookmark-btn"><button type="button"><i class="lni lni-heart-filled position-absolute"></i></button></div>
+                                        <div class="Goodup-grid-thumb">
+                                            <a href="single-listing-detail-8.html" class="d-block text-center m-auto"><img src="assets/img/rooms/4.jpg" class="img-fluid" alt=""></a>
+                                        </div>
+                                        <div class="Goodup-rating overlay">
+                                            <div class="Goodup-pr-average high">4.2</div>
+                                            <div class="Goodup-aldeio">
+                                                <div class="Goodup-rates">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                                <div class="Goodup-all-review"><span>42 Reviews</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="Goodup-grid-fl-wrap">
+                                        <div class="Goodup-caption px-3 py-2">
+                                            <div class="Goodup-room-price"><span>$199</span>per night</div>
+                                            <h4 class="mb-0 ft-medium medium mb-0"><a href="single-listing-detail-8.html" class="text-dark fs-md">3112 Comfort Deluxe Space<span class="verified-badge"><i class="fas fa-check-circle"></i></span></a></h4>
+                                            <div class="Goodup-distance">1.5 km to Town Center</div>
+                                            <div class="Goodup-middle-caption mt-3">
+                                                <div class="Goodup-facilities-wrap Goodup-flx mb-0">
+                                                    <div class="Goodup-facility-list">
+                                                        <ul class="no-list-style">
+                                                            <li><i class="fas fa-wifi"></i></li>
+                                                            <li><i class="fas fa-swimming-pool"></i></li>
+                                                            <li><i class="fas fa-parking"></i></li>
+                                                            <li><i class="fas fa-dog"></i></li>
+                                                            <li><i class="fas fa-fan"></i></li>
+                                                            <li><i class="fas fa-wine-glass-alt"></i></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="Goodup-booking-button">
+                                                    <a href="#" class="Goodup-btn-book">Book Now</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Single -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                                <div class="Goodup-grid-wrap">
+                                    <div class="Goodup-grid-upper">
+                                        <div class="Goodup-bookmark-btn"><button type="button"><i class="lni lni-heart-filled position-absolute"></i></button></div>
+                                        <div class="Goodup-pos ab-left">
+                                            <div class="Goodup-status offer me-2">-20% Off</div><div class="Goodup-featured-tag">Featured</div>
+                                        </div>
+                                        <div class="Goodup-grid-thumb">
+                                            <a href="single-listing-detail-8.html" class="d-block text-center m-auto"><img src="assets/img/rooms/5.jpg" class="img-fluid" alt=""></a>
+                                        </div>
+                                        <div class="Goodup-rating overlay">
+                                            <div class="Goodup-pr-average high">4.2</div>
+                                            <div class="Goodup-aldeio">
+                                                <div class="Goodup-rates">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                                <div class="Goodup-all-review"><span>42 Reviews</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="Goodup-grid-fl-wrap">
+                                        <div class="Goodup-caption px-3 py-2">
+                                            <div class="Goodup-room-price"><span>$199</span>per night</div>
+                                            <h4 class="mb-0 ft-medium medium mb-0"><a href="single-listing-detail-8.html" class="text-dark fs-md">3112 Comfort Deluxe Space<span class="verified-badge"><i class="fas fa-check-circle"></i></span></a></h4>
+                                            <div class="Goodup-distance">1.5 km to Town Center</div>
+                                            <div class="Goodup-middle-caption mt-3">
+                                                <div class="Goodup-facilities-wrap Goodup-flx mb-0">
+                                                    <div class="Goodup-facility-list">
+                                                        <ul class="no-list-style">
+                                                            <li><i class="fas fa-wifi"></i></li>
+                                                            <li><i class="fas fa-swimming-pool"></i></li>
+                                                            <li><i class="fas fa-parking"></i></li>
+                                                            <li><i class="fas fa-dog"></i></li>
+                                                            <li><i class="fas fa-fan"></i></li>
+                                                            <li><i class="fas fa-wine-glass-alt"></i></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="Goodup-booking-button">
+                                                    <a href="#" class="Goodup-btn-book">Book Now</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Single -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                                <div class="Goodup-grid-wrap">
+                                    <div class="Goodup-grid-upper">
+                                        <div class="Goodup-bookmark-btn"><button type="button"><i class="lni lni-heart-filled position-absolute"></i></button></div>
+                                        <div class="Goodup-pos ab-left">
+                                            <div class="Goodup-status offer me-2">-20% Off</div>
+                                        </div>
+                                        <div class="Goodup-grid-thumb">
+                                            <a href="single-listing-detail-8.html" class="d-block text-center m-auto"><img src="assets/img/rooms/6.jpg" class="img-fluid" alt=""></a>
+                                        </div>
+                                        <div class="Goodup-rating overlay">
+                                            <div class="Goodup-pr-average high">4.2</div>
+                                            <div class="Goodup-aldeio">
+                                                <div class="Goodup-rates">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                                <div class="Goodup-all-review"><span>42 Reviews</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="Goodup-grid-fl-wrap">
+                                        <div class="Goodup-caption px-3 py-2">
+                                            <div class="Goodup-room-price"><span>$199</span>per night</div>
+                                            <h4 class="mb-0 ft-medium medium mb-0"><a href="single-listing-detail-8.html" class="text-dark fs-md">3112 Comfort Deluxe Space<span class="verified-badge"><i class="fas fa-check-circle"></i></span></a></h4>
+                                            <div class="Goodup-distance">1.5 km to Town Center</div>
+                                            <div class="Goodup-middle-caption mt-3">
+                                                <div class="Goodup-facilities-wrap Goodup-flx mb-0">
+                                                    <div class="Goodup-facility-list">
+                                                        <ul class="no-list-style">
+                                                            <li><i class="fas fa-wifi"></i></li>
+                                                            <li><i class="fas fa-swimming-pool"></i></li>
+                                                            <li><i class="fas fa-parking"></i></li>
+                                                            <li><i class="fas fa-dog"></i></li>
+                                                            <li><i class="fas fa-fan"></i></li>
+                                                            <li><i class="fas fa-wine-glass-alt"></i></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="Goodup-booking-button">
+                                                    <a href="#" class="Goodup-btn-book">Book Now</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Single -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                                <div class="Goodup-grid-wrap">
+                                    <div class="Goodup-grid-upper">
+                                        <div class="Goodup-bookmark-btn"><button type="button"><i class="lni lni-heart-filled position-absolute"></i></button></div>
+                                        <div class="Goodup-pos ab-left">
+                                            <div class="Goodup-featured-tag">Featured</div>
+                                        </div>
+                                        <div class="Goodup-grid-thumb">
+                                            <a href="single-listing-detail-8.html" class="d-block text-center m-auto"><img src="assets/img/rooms/7.jpg" class="img-fluid" alt=""></a>
+                                        </div>
+                                        <div class="Goodup-rating overlay">
+                                            <div class="Goodup-pr-average high">4.2</div>
+                                            <div class="Goodup-aldeio">
+                                                <div class="Goodup-rates">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                                <div class="Goodup-all-review"><span>42 Reviews</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="Goodup-grid-fl-wrap">
+                                        <div class="Goodup-caption px-3 py-2">
+                                            <div class="Goodup-room-price"><span>$199</span>per night</div>
+                                            <h4 class="mb-0 ft-medium medium mb-0"><a href="single-listing-detail-8.html" class="text-dark fs-md">3112 Comfort Deluxe Space<span class="verified-badge"><i class="fas fa-check-circle"></i></span></a></h4>
+                                            <div class="Goodup-distance">1.5 km to Town Center</div>
+                                            <div class="Goodup-middle-caption mt-3">
+                                                <div class="Goodup-facilities-wrap Goodup-flx mb-0">
+                                                    <div class="Goodup-facility-list">
+                                                        <ul class="no-list-style">
+                                                            <li><i class="fas fa-wifi"></i></li>
+                                                            <li><i class="fas fa-swimming-pool"></i></li>
+                                                            <li><i class="fas fa-parking"></i></li>
+                                                            <li><i class="fas fa-dog"></i></li>
+                                                            <li><i class="fas fa-fan"></i></li>
+                                                            <li><i class="fas fa-wine-glass-alt"></i></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="Goodup-booking-button">
+                                                    <a href="#" class="Goodup-btn-book">Book Now</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Single -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                                <div class="Goodup-grid-wrap">
+                                    <div class="Goodup-grid-upper">
+                                        <div class="Goodup-bookmark-btn"><button type="button"><i class="lni lni-heart-filled position-absolute"></i></button></div>
+                                        <div class="Goodup-pos ab-left">
+                                            <div class="Goodup-status offer me-2">-20% Off</div>
+                                        </div>
+                                        <div class="Goodup-grid-thumb">
+                                            <a href="single-listing-detail-8.html" class="d-block text-center m-auto"><img src="assets/img/rooms/8.jpg" class="img-fluid" alt=""></a>
+                                        </div>
+                                        <div class="Goodup-rating overlay">
+                                            <div class="Goodup-pr-average high">4.2</div>
+                                            <div class="Goodup-aldeio">
+                                                <div class="Goodup-rates">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                                <div class="Goodup-all-review"><span>42 Reviews</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="Goodup-grid-fl-wrap">
+                                        <div class="Goodup-caption px-3 py-2">
+                                            <div class="Goodup-room-price"><span>$199</span>per night</div>
+                                            <h4 class="mb-0 ft-medium medium mb-0"><a href="single-listing-detail-8.html" class="text-dark fs-md">3112 Comfort Deluxe Space<span class="verified-badge"><i class="fas fa-check-circle"></i></span></a></h4>
+                                            <div class="Goodup-distance">1.5 km to Town Center</div>
+                                            <div class="Goodup-middle-caption mt-3">
+                                                <div class="Goodup-facilities-wrap Goodup-flx mb-0">
+                                                    <div class="Goodup-facility-list">
+                                                        <ul class="no-list-style">
+                                                            <li><i class="fas fa-wifi"></i></li>
+                                                            <li><i class="fas fa-swimming-pool"></i></li>
+                                                            <li><i class="fas fa-parking"></i></li>
+                                                            <li><i class="fas fa-dog"></i></li>
+                                                            <li><i class="fas fa-fan"></i></li>
+                                                            <li><i class="fas fa-wine-glass-alt"></i></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="Goodup-booking-button">
+                                                    <a href="#" class="Goodup-btn-book">Book Now</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- /Hotels -->
+
+                    <!-- jobs -->
+                    <div class="tab-pane fade" id="jobs" role="tabpanel" aria-labelledby="jobs-tab">
+                        <div class="row justify-content-center">
+
+                            <!-- Single Jobs -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                                <div class="_jb_list72">
+                                    <div class="jobs-like bookmark">
+                                        <label class="toggler toggler-danger"><input type="checkbox"><i class="fa fa-bookmark"></i></label>
+                                    </div>
+                                    <div class="_jb_list72_flex">
+                                        <div class="_jb_list72_first">
+                                            <div class="_jb_list72_yhumb">
+                                                <img src="assets/img/c-1.png" class="img-fluid" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="_jb_list72_last">
+                                            <h4 class="_jb_title"><a href="single-listing-detail-6.html">Application Designer</a></h4>
+                                            <div class="_times_jb">$70k - 80k</div>
+                                            <div class="_jb_types fulltime_lite">Full Time</div>
+                                        </div>
+                                    </div>
+                                    <div class="_jb_list72_foot">
+                                        <div class="_times_jb">Just now</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Single Jobs -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                                <div class="_jb_list72">
+                                    <div class="jobs-like bookmark">
+                                        <label class="toggler toggler-danger"><input type="checkbox"><i class="fa fa-bookmark"></i></label>
+                                    </div>
+                                    <div class="_jb_list72_flex">
+                                        <div class="_jb_list72_first">
+                                            <div class="_jb_list72_yhumb">
+                                                <img src="assets/img/c-2.png" class="img-fluid" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="_jb_list72_last">
+                                            <h4 class="_jb_title"><a href="single-listing-detail-6.html">IOS Developer</a></h4>
+                                            <div class="_times_jb">$55k - 80k</div>
+                                            <div class="_jb_types parttime_lite">Part Time</div>
+                                        </div>
+                                    </div>
+                                    <div class="_jb_list72_foot">
+                                        <div class="_times_jb">10 min ago</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Single Jobs -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                                <div class="_jb_list72">
+                                    <div class="jobs-like bookmark">
+                                        <label class="toggler toggler-danger"><input type="checkbox"><i class="fa fa-bookmark"></i></label>
+                                    </div>
+                                    <div class="_jb_list72_flex">
+                                        <div class="_jb_list72_first">
+                                            <div class="_jb_list72_yhumb">
+                                                <img src="assets/img/c-3.png" class="img-fluid" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="_jb_list72_last">
+                                            <h4 class="_jb_title"><a href="single-listing-detail-6.html">Web Developer</a></h4>
+                                            <div class="_times_jb">$50k - 60k</div>
+                                            <div class="_jb_types internship_lite">Internship</div>
+                                        </div>
+                                    </div>
+                                    <div class="_jb_list72_foot">
+                                        <div class="_times_jb">02 min ago</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Single Jobs -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                                <div class="_jb_list72">
+                                    <div class="jobs-like bookmark">
+                                        <label class="toggler toggler-danger"><input type="checkbox"><i class="fa fa-bookmark"></i></label>
+                                    </div>
+                                    <div class="_jb_list72_flex">
+                                        <div class="_jb_list72_first">
+                                            <div class="_jb_list72_yhumb">
+                                                <img src="assets/img/c-4.png" class="img-fluid" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="_jb_list72_last">
+                                            <h4 class="_jb_title"><a href="single-listing-detail-6.html">Product Designer</a></h4>
+                                            <div class="_times_jb">$40k - 60k</div>
+                                            <div class="_jb_types parttime_lite">Part Time</div>
+                                        </div>
+                                    </div>
+                                    <div class="_jb_list72_foot">
+                                        <div class="_times_jb">05 min ago</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Single Jobs -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                                <div class="_jb_list72">
+                                    <div class="jobs-like bookmark">
+                                        <label class="toggler toggler-danger"><input type="checkbox"><i class="fa fa-bookmark"></i></label>
+                                    </div>
+                                    <div class="_jb_list72_flex">
+                                        <div class="_jb_list72_first">
+                                            <div class="_jb_list72_yhumb">
+                                                <img src="assets/img/c-5.png" class="img-fluid" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="_jb_list72_last">
+                                            <h4 class="_jb_title"><a href="single-listing-detail-6.html">UI/UX Designer</a></h4>
+                                            <div class="_times_jb">$60k - 80k</div>
+                                            <div class="_jb_types remote">Remote</div>
+                                        </div>
+                                    </div>
+                                    <div class="_jb_list72_foot">
+                                        <div class="_times_jb">10 min ago</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Single Jobs -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                                <div class="_jb_list72">
+                                    <div class="jobs-like bookmark">
+                                        <label class="toggler toggler-danger"><input type="checkbox"><i class="fa fa-bookmark"></i></label>
+                                    </div>
+                                    <div class="_jb_list72_flex">
+                                        <div class="_jb_list72_first">
+                                            <div class="_jb_list72_yhumb">
+                                                <img src="assets/img/c-6.png" class="img-fluid" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="_jb_list72_last">
+                                            <h4 class="_jb_title"><a href="single-listing-detail-6.html">SEO Expert</a></h4>
+                                            <div class="_times_jb">$30k - 50k</div>
+                                            <div class="_jb_types fulltime_lite">Full Time</div>
+                                        </div>
+                                    </div>
+                                    <div class="_jb_list72_foot">
+                                        <div class="_times_jb">20 min ago</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Single Jobs -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                                <div class="_jb_list72">
+                                    <div class="jobs-like bookmark">
+                                        <label class="toggler toggler-danger"><input type="checkbox"><i class="fa fa-bookmark"></i></label>
+                                    </div>
+                                    <div class="_jb_list72_flex">
+                                        <div class="_jb_list72_first">
+                                            <div class="_jb_list72_yhumb">
+                                                <img src="assets/img/c-7.png" class="img-fluid" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="_jb_list72_last">
+                                            <h4 class="_jb_title"><a href="single-listing-detail-6.html">Magento Developer</a></h4>
+                                            <div class="_times_jb">$50k - 60k</div>
+                                            <div class="_jb_types internship_lite">Internship</div>
+                                        </div>
+                                    </div>
+                                    <div class="_jb_list72_foot">
+                                        <div class="_times_jb">1 hour ago</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Single Jobs -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                                <div class="_jb_list72">
+                                    <div class="jobs-like bookmark">
+                                        <label class="toggler toggler-danger"><input type="checkbox"><i class="fa fa-bookmark"></i></label>
+                                    </div>
+                                    <div class="_jb_list72_flex">
+                                        <div class="_jb_list72_first">
+                                            <div class="_jb_list72_yhumb">
+                                                <img src="assets/img/c-8.png" class="img-fluid" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="_jb_list72_last">
+                                            <h4 class="_jb_title"><a href="single-listing-detail-6.html">WordPress Developer</a></h4>
+                                            <div class="_times_jb">$40k - 60k</div>
+                                            <div class="_jb_types fulltime_lite">Full Time</div>
+                                        </div>
+                                    </div>
+                                    <div class="_jb_list72_foot">
+                                        <div class="_times_jb">6 hour ago</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Single Jobs -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                                <div class="_jb_list72">
+                                    <div class="jobs-like bookmark">
+                                        <label class="toggler toggler-danger"><input type="checkbox"><i class="fa fa-bookmark"></i></label>
+                                    </div>
+                                    <div class="_jb_list72_flex">
+                                        <div class="_jb_list72_first">
+                                            <div class="_jb_list72_yhumb">
+                                                <img src="assets/img/c-9.png" class="img-fluid" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="_jb_list72_last">
+                                            <h4 class="_jb_title"><a href="single-listing-detail-6.html">PHP Developer</a></h4>
+                                            <div class="_times_jb">$25k - 40k</div>
+                                            <div class="_jb_types remote">Remote</div>
+                                        </div>
+                                    </div>
+                                    <div class="_jb_list72_foot">
+                                        <div class="_times_jb">3 hour ago</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Single Jobs -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                                <div class="_jb_list72">
+                                    <div class="jobs-like bookmark">
+                                        <label class="toggler toggler-danger"><input type="checkbox"><i class="fa fa-bookmark"></i></label>
+                                    </div>
+                                    <div class="_jb_list72_flex">
+                                        <div class="_jb_list72_first">
+                                            <div class="_jb_list72_yhumb">
+                                                <img src="assets/img/c-10.png" class="img-fluid" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="_jb_list72_last">
+                                            <h4 class="_jb_title"><a href="single-listing-detail-6.html">Content Writer</a></h4>
+                                            <div class="_times_jb">$30k - 40k</div>
+                                            <div class="_jb_types fulltime_lite">Full Time</div>
+                                        </div>
+                                    </div>
+                                    <div class="_jb_list72_foot">
+                                        <div class="_times_jb">5 hour ago</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Single Jobs -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                                <div class="_jb_list72">
+                                    <div class="jobs-like bookmark">
+                                        <label class="toggler toggler-danger"><input type="checkbox"><i class="fa fa-bookmark"></i></label>
+                                    </div>
+                                    <div class="_jb_list72_flex">
+                                        <div class="_jb_list72_first">
+                                            <div class="_jb_list72_yhumb">
+                                                <img src="assets/img/c-11.png" class="img-fluid" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="_jb_list72_last">
+                                            <h4 class="_jb_title"><a href="single-listing-detail-6.html">UI/UX Designer</a></h4>
+                                            <div class="_times_jb">$30k - 55k</div>
+                                            <div class="_jb_types parttime_lite">Part Time</div>
+                                        </div>
+                                    </div>
+                                    <div class="_jb_list72_foot">
+                                        <div class="_times_jb">7 hour ago</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- /jobs -->
+
+                </div>
+            </div>
+
+        </div>
+        <!-- /row -->
+
+    </div>
+</section>
+<!-- ======================= All Types Listing ======================== -->
+
+<!-- ======================= Listing Categories ======================== -->
+<section class="space min gray">
+    <div class="container">
+
+        <div class="row justify-content-center">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                <div class="sec_title position-relative text-center mb-5">
+                    <h6 class="mb-0 theme-cl">Popular Categories</h6>
+                    <h2 class="ft-bold">Browse Top Categories</h2>
+                </div>
+            </div>
+        </div>
+
+        <!-- row -->
+        <div class="row align-items-center">
+
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-6">
+                <div class="cats-wrap text-center">
+                    <a href="listing-search-v1.html" class="Goodup-catg-wrap">
+                        <div class="Goodup-catg-city">07 Cities</div>
+                        <div class="Goodup-catg-icon"><i class="fas fa-stethoscope"></i></div>
+                        <div class="Goodup-catg-caption">
+                            <h4 class="fs-md mb-0 ft-medium m-catrio">Dentists</h4>
+                            <span class="text-muted">607 Listings</span>
+                        </div>
                     </a>
                 </div>
-                <!-- Listing Item / End -->
-                    @endforeach
-
-
-                </div>
-
             </div>
 
-        </div>
-    </div>
-    <!-- Listings / End -->
-
-
-    <section class="fullwidth taxonomy-gallery-container margin-top-70 padding-top-75 padding-bottom-70" data-background-color="#f9f9f9">
-
-        <!-- Info Section -->
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-
-                    <!-- Infobox -->
-                    <div class="taxonomy-gallery-text">
-                        <h2>Find Your Ultimate <br> Local Weekend</h2>
-                        <p>A curated collection of stays and experiences to inspire your next trip.</p>
-                        <a href="listings-list-with-sidebar.html" class="button margin-top-25">Discover Places</a>
-                    </div>
-                    <!-- Infobox / End -->
-
-                </div>
-            </div>
-        </div>
-        <!-- Info Section / End -->
-
-        <div class="gallery-wrap">
-            @foreach ($states as $item)
-            <a href="{{route('cities')}}/{{$item->name}}" class="item">
-                <h3>{{$item->name}} <span>{{$item->cities_count}} Cities</span></h3>
-                <img src="{{asset('/business/states')}}/{{$item->image}}" alt="">
-            </a>
-            @endforeach
-
-            {{-- <a href="#" class="item">
-                <h3>Los Angeles <span>2 listings</span></h3>
-                <img src="{{asset('assets/images/popular-location-02.jpg')}}" alt="">
-            </a>
-
-            <a href="#" class="item">
-                <h3>San Francisco <span>4 listings</span></h3>
-                <img src="{{asset('assets/images/popular-location-03.jpg')}}" alt="">
-            </a>
-
-            <a href="#" class="item">
-                <h3>Miami <span>6 listings</span></h3>
-                <img src="{{asset('assets/images/popular-location-04.jpg')}}" alt="">
-            </a> --}}
-        </div>
-
-
-    </section>
-
-
-    <div class="container margin-top-80">
-        <div class="row">
-            <div class="col-md-12">
-                <h3 class="headline margin-top-0 margin-bottom-40">
-                    <strong class="headline-with-separator">How It Works?</strong>
-                </h3>
-            </div>
-            <div class="col-md-5">
-                <a href="#" class="icon-box-v3">
-                    <div class="ibv3-icon">
-                        <i class="im im-icon-Add-User"></i>
-                    </div>
-                    <div class="ibv3-content">
-                        <h4>Creata an Account</h4>
-                        <p>Integer dapibus purus sit amet metus scelerisque hendrerit non a urna</p>
-                    </div>
-                </a>
-                <a href="#" class="icon-box-v3">
-                    <div class="ibv3-icon">
-                        <i class="im im-icon-Add-File"></i>
-                    </div>
-                    <div class="ibv3-content">
-                        <h4>Add Listings</h4>
-                        <p>Phasellus id nulla id tortor laoreet tempor et non risus class aptent taciti</p>
-                    </div>
-                </a>
-                <a href="#" class="icon-box-v3">
-                    <div class="ibv3-icon">
-                        <i class="im im-icon-Queen"></i>
-                    </div>
-                    <div class="ibv3-content">
-                        <h4>Get Exposure</h4>
-                        <p>Vestibulum pretium massa in bibendum nam mollis quam et feugiat consectetur</p>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-7">
-                <div class="svg-alignment">
-                    <img src="{{asset('assets/images/image_placeholder.svg')}}" style="width: 60%;" alt="">
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <section class="fullwidth border-top padding-bottom-80 padding-top-80 margin-top-80" >
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="boxed-photo-banner">
-                        <!-- Infobox -->
-                        <div class="boxed-photo-banner-text">
-                            <h2>Join Our Community</h2>
-                            <p>Earn extra income and unlock new opportunities by advertising your business</p>
-                            <a href="listings-list-with-sidebar.html" class="button margin-top-25">Become a Host</a>
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-6">
+                <div class="cats-wrap text-center">
+                    <a href="listing-search-v1.html" class="Goodup-catg-wrap">
+                        <div class="Goodup-catg-city">17 Cities</div>
+                        <div class="Goodup-catg-icon"><i class="fas fa-building"></i></div>
+                        <div class="Goodup-catg-caption">
+                            <h4 class="fs-md mb-0 ft-medium m-catrio">IT &amp; Banking</h4>
+                            <span class="text-muted">76 Listings</span>
                         </div>
-                        <!-- Infobox / End -->
-                        <img src="{{asset('assets/images/slider-bg-02.jpg')}}" alt="">
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-6">
+                <div class="cats-wrap text-center">
+                    <a href="listing-search-v1.html" class="Goodup-catg-wrap">
+                        <div class="Goodup-catg-city">19 Cities</div>
+                        <div class="Goodup-catg-icon"><i class="fas fa-shopping-basket"></i></div>
+                        <div class="Goodup-catg-caption">
+                            <h4 class="fs-md mb-0 ft-medium m-catrio">Shoppings</h4>
+                            <span class="text-muted">112 Listings</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-6">
+                <div class="cats-wrap text-center">
+                    <a href="listing-search-v1.html" class="Goodup-catg-wrap">
+                        <div class="Goodup-catg-city">32 Cities</div>
+                        <div class="Goodup-catg-icon"><i class="fas fa-screwdriver"></i></div>
+                        <div class="Goodup-catg-caption">
+                            <h4 class="fs-md mb-0 ft-medium m-catrio">Home Services</h4>
+                            <span class="text-muted">322 Listings</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-6">
+                <div class="cats-wrap text-center">
+                    <a href="listing-search-v1.html" class="Goodup-catg-wrap">
+                        <div class="Goodup-catg-city">27 Cities</div>
+                        <div class="Goodup-catg-icon"><i class="fas fa-basketball-ball"></i></div>
+                        <div class="Goodup-catg-caption">
+                            <h4 class="fs-md mb-0 ft-medium m-catrio">Active Life</h4>
+                            <span class="text-muted">161 Listings</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-6">
+                <div class="cats-wrap text-center">
+                    <a href="listing-search-v1.html" class="Goodup-catg-wrap">
+                        <div class="Goodup-catg-city">26 Cities</div>
+                        <div class="Goodup-catg-icon"><i class="fas fa-utensils"></i></div>
+                        <div class="Goodup-catg-caption">
+                            <h4 class="fs-md mb-0 ft-medium m-catrio">Restaurants</h4>
+                            <span class="text-muted">172 Listings</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-6">
+                <div class="cats-wrap text-center">
+                    <a href="listing-search-v1.html" class="Goodup-catg-wrap">
+                        <div class="Goodup-catg-city">10 Cities</div>
+                        <div class="Goodup-catg-icon"><i class="fas fa-book-open"></i></div>
+                        <div class="Goodup-catg-caption">
+                            <h4 class="fs-md mb-0 ft-medium m-catrio">Education</h4>
+                            <span class="text-muted">144 Listings</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-6">
+                <div class="cats-wrap text-center">
+                    <a href="listing-search-v1.html" class="Goodup-catg-wrap">
+                        <div class="Goodup-catg-city">24 Cities</div>
+                        <div class="Goodup-catg-icon"><i class="fas fa-house-damage"></i></div>
+                        <div class="Goodup-catg-caption">
+                            <h4 class="fs-md mb-0 ft-medium m-catrio">Real Estate</h4>
+                            <span class="text-muted">210 Listings</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-6">
+                <div class="cats-wrap text-center">
+                    <a href="listing-search-v1.html" class="Goodup-catg-wrap">
+                        <div class="Goodup-catg-city">18 Cities</div>
+                        <div class="Goodup-catg-icon"><i class="fas fa-wine-glass"></i></div>
+                        <div class="Goodup-catg-caption">
+                            <h4 class="fs-md mb-0 ft-medium m-catrio">Event Palnning</h4>
+                            <span class="text-muted">241 Listings</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-6">
+                <div class="cats-wrap text-center">
+                    <a href="listing-search-v1.html" class="Goodup-catg-wrap">
+                        <div class="Goodup-catg-city">06 Cities</div>
+                        <div class="Goodup-catg-icon"><i class="fas fa-car-alt"></i></div>
+                        <div class="Goodup-catg-caption">
+                            <h4 class="fs-md mb-0 ft-medium m-catrio">Automotive</h4>
+                            <span class="text-muted">52 Listings</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-6">
+                <div class="cats-wrap text-center">
+                    <a href="listing-search-v1.html" class="Goodup-catg-wrap">
+                        <div class="Goodup-catg-city">08 Cities</div>
+                        <div class="Goodup-catg-icon"><i class="fas fa-pencil-ruler"></i></div>
+                        <div class="Goodup-catg-caption">
+                            <h4 class="fs-md mb-0 ft-medium m-catrio">Art &amp; Design</h4>
+                            <span class="text-muted">97 Listings</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-6">
+                <div class="cats-wrap text-center">
+                    <a href="listing-search-v1.html" class="Goodup-catg-wrap">
+                        <div class="Goodup-catg-city">05 Cities</div>
+                        <div class="Goodup-catg-icon"><i class="fas fa-plane"></i></div>
+                        <div class="Goodup-catg-caption">
+                            <h4 class="fs-md mb-0 ft-medium m-catrio">Hotel & Travel</h4>
+                            <span class="text-muted">42 Listings</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+        <!-- row -->
+
+    </div>
+</section>
+<!-- ======================= Listing Categories End ======================== -->
+
+<!-- ======================= About Start ============================ -->
+<section class="space">
+    <div class="container">
+
+        <div class="row align-items-center justify-content-between">
+            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                <div class="m-spaced">
+                    <div class="position-relative">
+                        <div class="mb-2"><span class="bg-light-sky text-sky px-2 py-1 rounded">Our Mission</span></div>
+                        <h2 class="ft-bold mb-3">Claim Your Business & <br>Get Started Today!</h2>
+                        <p class="mb-2">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                        <p class="mb-4">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. </p>
+                    </div>
+                    <div class="position-relative row">
+                        <div class="col-lg-4 col-md-4 col-4">
+                            <h3 class="ft-bold text-sky mb-0"><span class="count">07</span>+</h3>
+                            <p class="ft-medium">Business Listing</p>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-4">
+                            <h3 class="ft-bold text-warning mb-0"><span class="count">06</span>k+</h3>
+                            <p class="ft-medium">Popular Authors</p>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-4">
+                            <h3 class="ft-bold text-danger mb-0"><span class="count">200</span>+</h3>
+                            <p class="ft-medium">Countries</p>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-12 mt-3">
+                            <a href="javascript:void(0);" class="btn btn-md theme-bg-light rounded theme-cl hover-theme">See Details<i class="lni lni-arrow-right-circle ms-2"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
+
+            <div class="col-xl-5 col-lg-5 col-md-12 col-sm-12">
+                <div class="position-relative">
+                    <img src="assets/img/bn-5.png" class="img-fluid" alt="" />
+                </div>
+            </div>
         </div>
-    </section>
+
+    </div>
+</section>
+<!-- ======================= About Start ============================ -->
+
+<!-- ======================= About Start ============================ -->
+<section class="space pt-0">
+    <div class="container">
+
+        <div class="row align-items-center justify-content-between">
+
+            <div class="col-xl-5 col-lg-5 col-md-12 col-sm-12">
+                <div class="position-relative">
+                    <img src="assets/img/bn-4.png" class="img-fluid" alt="" />
+                </div>
+            </div>
+
+            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                <div class="m-spaced">
+                    <div class="position-relative">
+                        <div class="mb-1"><span class="bg-light-success text-success px-2 py-1 rounded">Process</span></div>
+                        <h2 class="ft-bold mb-3">How it works & features <br>Around The Globe</h2>
+                        <p class="mb-3">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                    </div>
+                    <div class="uli-list-features">
+                        <ul>
+
+                            <li>
+                                <div class="list-uiyt">
+                                    <div class="list-iobk"><i class="fas fa-globe"></i></div>
+                                    <div class="list-uiyt-capt">
+                                        <h5>Find Businesses</h5>
+                                        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores.</p>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div class="list-uiyt">
+                                    <div class="list-iobk"><i class="fas fa-envelope"></i></div>
+                                    <div class="list-uiyt-capt">
+                                        <h5>Review Listings</h5>
+                                        <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus.</p>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div class="list-uiyt">
+                                    <div class="list-iobk"><i class="fas fa-phone"></i></div>
+                                    <div class="list-uiyt-capt">
+                                        <h5>Make a Reservation</h5>
+                                        <p>Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis.</p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+<!-- ======================= About Start ============================ -->
+
+<!-- ============================ Pricing Start ==================================== -->
+<section class="space min gray">
+    <div class="container">
+
+        <div class="row justify-content-center">
+            <div class="col-xl-5 col-lg-7 col-md-9 col-sm-12">
+                <div class="sec_title position-relative text-center mb-5">
+                    <h6 class="theme-cl mb-0">Our Pricing</h6>
+                    <h2 class="ft-bold">Choose Your Package</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
+                <div class="Goodup-price-wrap">
+                    <div class="Goodup-author-header">
+                        <div class="Goodup-price-currency">
+                            <h3><span class="Goodup-new-price">$<del>49</del></span><span class="Goodup-old-price">$<del>149</del></span></h3>
+                        </div>
+                        <div class="Goodup-price-title">
+                            <div class="Goodup-price-tlt"><h4>Personal</h4></div><div class="Goodup-price-ribbon"><span class="Goodup-ribbon-offer all">50% Off</span></div>
+                        </div>
+                        <div class="Goodup-price-subtitle">Best Choice for Individuals </div>
+                    </div>
+                    <div class="Goodup-price-body">
+                        <ul class="price__features">
+                            <li><i class="fa fa-angle-right"></i>Lifetime Bandwidth Usage</li>
+                            <li><i class="fa fa-angle-right"></i>6 Months Support &amp; Updates</li>
+                            <li><i class="fa fa-angle-right"></i>10 Website License</li>
+                            <li><i class="fa fa-angle-right"></i>Quickstart Included</li>
+                            <li><i class="fa fa-angle-right"></i>Access to Plugins &amp; Theme</li>
+                            <li><i class="fa fa-angle-right"></i>Branding/Copyright Removal</li>
+                        </ul>
+                    </div>
+                    <div class="Goodup-price-bottom">
+                        <a class="Goodup-price-btn" href="#"><i class="fas fa-shopping-basket"></i> Purchase Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
+                <div class="Goodup-price-wrap">
+                    <div class="Goodup-author-header">
+                        <div class="Goodup-price-currency">
+                            <h3><span class="Goodup-new-price theme-cl">$<del>129</del></span><span class="Goodup-old-price">$<del>199</del></span></h3>
+                        </div>
+                        <div class="Goodup-price-title">
+                            <div class="Goodup-price-tlt"><h4>Platinum</h4></div><div class="Goodup-price-ribbon"><span class="Goodup-ribbon-offer">50% Off</span></div>
+                        </div>
+                        <div class="Goodup-price-subtitle">Best Choice for Individuals </div>
+                    </div>
+                    <div class="Goodup-price-body">
+                        <ul class="price__features">
+                            <li><i class="fa fa-angle-right"></i>Lifetime Bandwidth Usage</li>
+                            <li><i class="fa fa-angle-right"></i>12 Months Support &amp; Updates</li>
+                            <li><i class="fa fa-angle-right"></i>20 Website License</li>
+                            <li><i class="fa fa-angle-right"></i>Quickstart Included</li>
+                            <li><i class="fa fa-angle-right"></i>Access to Plugins &amp; Theme</li>
+                            <li><i class="fa fa-angle-right"></i>Branding/Copyright Removal</li>
+                        </ul>
+                    </div>
+                    <div class="Goodup-price-bottom">
+                        <a class="Goodup-price-btn active" href="#"><i class="fas fa-shopping-basket"></i> Purchase Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
+                <div class="Goodup-price-wrap">
+                    <div class="Goodup-author-header">
+                        <div class="Goodup-price-currency">
+                            <h3><span class="Goodup-new-price">$<del>149</del></span><span class="Goodup-old-price">$<del>249</del></span></h3>
+                        </div>
+                        <div class="Goodup-price-title">
+                            <div class="Goodup-price-tlt"><h4>Standard</h4></div><div class="Goodup-price-ribbon"><span class="Goodup-ribbon-offer all">50% Off</span></div>
+                        </div>
+                        <div class="Goodup-price-subtitle">Best Choice for Individuals </div>
+                    </div>
+                    <div class="Goodup-price-body">
+                        <ul class="price__features">
+                            <li><i class="fa fa-angle-right"></i>Lifetime Bandwidth Usage</li>
+                            <li><i class="fa fa-angle-right"></i>Lifetime Support &amp; Updates</li>
+                            <li><i class="fa fa-angle-right"></i>50 Website License</li>
+                            <li><i class="fa fa-angle-right"></i>Quickstart Included</li>
+                            <li><i class="fa fa-angle-right"></i>Access to Plugins &amp; Theme</li>
+                            <li><i class="fa fa-angle-right"></i>Branding/Copyright Removal</li>
+                        </ul>
+                    </div>
+                    <div class="Goodup-price-bottom">
+                        <a class="Goodup-price-btn" href="#"><i class="fas fa-shopping-basket"></i> Purchase Now</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+<!-- ============================ Pricing End ==================================== -->
+
+<!-- ======================= Blog Start ============================ -->
+<section class="space min">
+    <div class="container">
+
+        <div class="row justify-content-center">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                <div class="sec_title position-relative text-center mb-4">
+                    <h6 class="theme-cl mb-0">Latest News</h6>
+                    <h2 class="ft-bold">Pickup New Updates</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+
+            <!-- Single Item -->
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+                <div class="gup_blg_grid_box">
+                    <div class="gup_blg_grid_thumb">
+                        <a href="blog-detail.html"><img src="assets/img/b-4.jpg" class="img-fluid" alt=""></a>
+                    </div>
+                    <div class="gup_blg_grid_caption">
+                        <div class="blg_tag"><span>Marketing</span></div>
+                        <div class="blg_title"><h4><a href="blog-detail.html">What Is a VPN and How Does It Work?</a></h4></div>
+                        <div class="blg_desc"><p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum</p></div>
+                    </div>
+                    <div class="crs_grid_foot">
+                        <div class="crs_flex d-flex align-items-center justify-content-between br-top px-3 py-2">
+                            <div class="crs_fl_first">
+                                <div class="crs_tutor">
+                                    <div class="crs_tutor_thumb"><a href="javascript:void(0);"><img src="assets/img/team-2.jpg" class="img-fluid circle" width="35" alt=""></a></div>
+                                </div>
+                            </div>
+                            <div class="crs_fl_last">
+                                <div class="foot_list_info">
+                                    <ul>
+                                        <li><div class="elsio_ic"><i class="fa fa-eye text-success"></i></div><div class="elsio_tx">10k Views</div></li>
+                                        <li><div class="elsio_ic"><i class="fa fa-clock text-warning"></i></div><div class="elsio_tx">10 July 2021</div></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Single Item -->
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+                <div class="gup_blg_grid_box">
+                    <div class="gup_blg_grid_thumb">
+                        <a href="blog-detail.html"><img src="assets/img/b-5.jpg" class="img-fluid" alt=""></a>
+                    </div>
+                    <div class="gup_blg_grid_caption">
+                        <div class="blg_tag"><span>Business</span></div>
+                        <div class="blg_title"><h4><a href="blog-detail.html">What Is Ransomware: The Ultimate Guide?</a></h4></div>
+                        <div class="blg_desc"><p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum</p></div>
+                    </div>
+                    <div class="crs_grid_foot">
+                        <div class="crs_flex d-flex align-items-center justify-content-between br-top px-3 py-2">
+                            <div class="crs_fl_first">
+                                <div class="crs_tutor">
+                                    <div class="crs_tutor_thumb"><a href="javascript:void(0);"><img src="assets/img/team-3.jpg" class="img-fluid circle" width="35" alt=""></a></div>
+                                </div>
+                            </div>
+                            <div class="crs_fl_last">
+                                <div class="foot_list_info">
+                                    <ul>
+                                        <li><div class="elsio_ic"><i class="fa fa-eye text-success"></i></div><div class="elsio_tx">10k Views</div></li>
+                                        <li><div class="elsio_ic"><i class="fa fa-clock text-warning"></i></div><div class="elsio_tx">10 July 2021</div></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Single Item -->
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+                <div class="gup_blg_grid_box">
+                    <div class="gup_blg_grid_thumb">
+                        <a href="blog-detail.html"><img src="assets/img/b-6.jpg" class="img-fluid" alt=""></a>
+                    </div>
+                    <div class="gup_blg_grid_caption">
+                        <div class="blg_tag"><span>Accounting</span></div>
+                        <div class="blg_title"><h4><a href="blog-detail.html">Can iPads Get Viruses? What You Need</a></h4></div>
+                        <div class="blg_desc"><p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum</p></div>
+                    </div>
+                    <div class="crs_grid_foot">
+                        <div class="crs_flex d-flex align-items-center justify-content-between br-top px-3 py-2">
+                            <div class="crs_fl_first">
+                                <div class="crs_tutor">
+                                    <div class="crs_tutor_thumb"><a href="javascript:void(0);"><img src="assets/img/team-5.jpg" class="img-fluid circle" width="35" alt=""></a></div>
+                                </div>
+                            </div>
+                            <div class="crs_fl_last">
+                                <div class="foot_list_info">
+                                    <ul>
+                                        <li><div class="elsio_ic"><i class="fa fa-eye text-success"></i></div><div class="elsio_tx">10k Views</div></li>
+                                        <li><div class="elsio_ic"><i class="fa fa-clock text-warning"></i></div><div class="elsio_tx">10 July 2021</div></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+<!-- ======================= Blog Start ============================ -->
+
+<!-- ======================= Newsletter Start ============================ -->
+<section class="space bg-cover" style="background:#03343b url(assets/img/landing-bg.png) no-repeat;">
+    <div class="container py-5">
+
+        <div class="row justify-content-center">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                <div class="sec_title position-relative text-center mb-5">
+                    <h6 class="text-light mb-0">Subscribr Now</h6>
+                    <h2 class="ft-bold text-light">Get All Updates & Advance Offers</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="row align-items-center justify-content-center">
+            <div class="col-xl-7 col-lg-10 col-md-12 col-sm-12 col-12">
+                <form class="bg-white rounded p-1">
+                    <div class="row no-gutters">
+                        <div class="col-xl-9 col-lg-9 col-md-8 col-sm-8 col-8">
+                            <div class="form-group mb-0 position-relative">
+                                <input type="text" class="form-control b-0" placeholder="Enter Your Email Address">
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-4">
+                            <div class="form-group mb-0 position-relative">
+                                <button class="btn full-width btn-height theme-bg text-light fs-md" type="button">Subscribe</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</section>
+<!-- ======================= Newsletter Start ============================ -->
+
+
 @endsection

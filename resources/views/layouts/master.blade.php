@@ -26,7 +26,7 @@
 
 
     <!-- Back To Top Button -->
-    <div id="backtotop"><a href="#"></a></div>
+    <a id="tops-button" class="top-scroll" title="Back to top" href="#"><i class="ti-arrow-up"></i></a>
 
 
     </div>
