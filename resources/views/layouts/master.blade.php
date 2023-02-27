@@ -34,6 +34,6 @@
 
     @include('sweetalert::alert')
     @yield('js')
-    @include('layouts.partials.scripts')
+    @include('layouts.partials.front-scripts')
 </body>
 </html>

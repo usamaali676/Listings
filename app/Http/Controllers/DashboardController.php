@@ -15,8 +15,9 @@ class DashboardController extends Controller
     public function index()
     {
         $business = Business::all();
-        $bcat = BusinessCategory::latest()->take(5)->get();
-
+        $bcat = BusinessCategory::withcount('businesses')->latest()->take(12)->get();
+        $famcat = BusinessCategory::withcount('businesses')->orderBy('businesses_count', 'desc')->take(6)->get();
+        // dd($bcat);
         $populer_categories = BusinessCategory::withcount('businesses')->get();
         // $areas = AreaWeServe::withcount('Areabusinesses')->latest()->limit(4)->get();
         $areas = AreaWeServe::groupBy('area')
@@ -27,7 +28,7 @@ class DashboardController extends Controller
 
         // $arecount = AreaWeServe::withcount('Areabusinesses')->get();
         // dd($areas);
-        return view('FrontEnd.index', compact('business','bcat', 'areas','states'));
+        return view('FrontEnd.index', compact('business','bcat', 'areas','states','famcat'));
     }
     public function cities(Request $request, $name)
     {

@@ -1,4 +1,10 @@
 @extends('layouts.app')
+@section('css')
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://itsjavi.com/fontawesome-iconpicker/dist/css/fontawesome-iconpicker.min.css">
+
+@endsection
 @section('content')
 <!-- Container -->
 
@@ -77,16 +83,14 @@
                                 <div class="row with-forms">
                                 <div class="col-md-6">
                                     <h5>Icon </h5>
-                                    <div class="uploadButton margin-top-15 text-center">
 
-                                        <input type="file" name="icon" accept="image/*, application/pdf" id="upload">
-                                    </div>
+                                    <input class="form-control icp icp-auto" name="icon" value="fas fa-anchor" type="text"/>
 
                                 </div>
-                                <div class="col-md-6">
+                                {{-- <div class="col-md-6">
                                     <h5>Image </h5>
                                     <input  type="file" name="image"   accept="image/*, application/pdf" id="upload"/>
-                                </div>
+                                </div> --}}
 
                                 </div>
                             <!-- Section / End -->
@@ -103,4 +107,12 @@
 	<!-- Content / End -->
 <!-- Container / End -->
 
+@endsection
+@section('js')
+<script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://itsjavi.com/fontawesome-iconpicker/dist/js/fontawesome-iconpicker.js"></script>
+<script>
+    $('.icp-auto').iconpicker();
+</script>
 @endsection

@@ -40,7 +40,7 @@ class BusinessCategoriesController extends Controller
      */
     public function store(Request $request)
     {
-
+        // dd($request->all());
        $request->validate([
         'slug' => 'required|unique:business_categories',
            'name'=> 'required'
@@ -49,17 +49,7 @@ class BusinessCategoriesController extends Controller
        $category->name = $request->name;
        $request->slug = preg_replace('/\s+/', '-', $request->slug);
        $category->slug = $request->slug;
-       if($request->hasFile('icon'))
-       {
-
-           $img_file = $request->file('icon');
-           $category->icon=fts_upload_img($img_file,'icons');
-       }
-       if($request->hasFile('image'))
-       {
-           $img_file = $request->file('image');
-           $category->image=fts_upload_img($img_file,'businesscategory');
-       }
+       $category->icon = $request->icon;
        $category->save();
        Alert::success('Success', 'Business Category Added Successfully');
        return redirect()->route('bc.index');
@@ -105,21 +95,7 @@ class BusinessCategoriesController extends Controller
         $input['name']=$request->name;
         $request->slug = preg_replace('/\s+/', '-', $request->slug);
         $input['slug'] = $request->slug;
-
-        if($request->hasFile('icon'))
-       {
-           $img_file = $request->file('icon');
-           $input['icon']=fts_upload_img($img_file,'icons');
-           $old_img=$request->old_image;
-            delete_img($old_img,'icons');
-       }
-       if($request->hasFile('image'))
-       {
-           $img_file = $request->file('image');
-           $input['image']=fts_upload_img($img_file,'businesscategory');
-           $old_img=$request->old_image;
-           delete_img($old_img,'businesscategory');
-       }
+        $input['icon'] = $request->icon;
        BusinessCategory::where('id', $request->id)->update($input);
        Alert::success('Success','BusinessCategory Updated Successfully');
         return redirect()->route('bc.index');
