@@ -66,7 +66,10 @@ class DashboardController extends Controller
     {
         $business = Business::latest()->paginate(5);
         $businessCategory = BusinessCategory::all();
-        return view('FrontEnd.listing', compact('business', 'businessCategory'));
+        $areas = AreaWeServe::select('area')
+        ->distinct()
+        ->get();
+        return view('FrontEnd.listing', compact('business', 'businessCategory','areas'));
     }
     public function search(Request $request){
         // Get the search value from the request

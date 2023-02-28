@@ -14,7 +14,7 @@
                 <div class="Goodup-top-cates">
                     <ul>
                         @foreach ($famcat as $list)
-                        <li><a href="half-map-search-2.html" class="Goodup-top-cat-box"><div class="Goodup-tp-ico"><i class="{{$list->icon}}"></i></div><div class="Goodup-tp-title"><h5>{{$list->name}}</h5></div></a></li>
+                        <li><a href="{{route('singcat')}}/{{$list->slug}}" class="Goodup-top-cat-box"><div class="Goodup-tp-ico"><i class="{{$list->icon}}"></i></div><div class="Goodup-tp-title"><h5>{{$list->name}}</h5></div></a></li>
                         @endforeach
                     </ul>
                 </div>
@@ -179,7 +179,7 @@
             @foreach ($bcat as $item)
             <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-6">
                 <div class="cats-wrap text-center">
-                    <a href="listing-search-v1.html" class="Goodup-catg-wrap">
+                    <a href="{{route('singcat')}}/{{$item->slug}}" class="Goodup-catg-wrap">
                         <div class="Goodup-catg-city">{{$item->businesses_count}} Listings</div>
                         <div class="Goodup-catg-icon"><i class="{{$item->icon}}"></i></div>
                         <div class="Goodup-catg-caption">
