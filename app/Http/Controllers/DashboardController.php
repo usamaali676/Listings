@@ -52,11 +52,16 @@ class DashboardController extends Controller
     }
     public function filter(Request $request)
     {
-        $query = Business::query();
-        if($request->ajax()){
+        // $test = $request->all();
+        // return response()->json(['test' => $test]);
 
+        if($request->ajax()){
+            $cat_id = BusinessCategory::where('name', $request->category)->pluck('id');
+            $business = Business::whereHas('cat', function ($query) use($cat_id){
+                $query->where('cat_id', $cat_id);
+            })->get();
+            return response()->json(['business' => $business]);
         }
-        $business = $query->get();
     }
     public function contact()
     {
@@ -64,7 +69,12 @@ class DashboardController extends Controller
     }
     public function listing()
     {
-        $business = Business::latest()->paginate(5);
+        // $cat_id = BusinessCategory::where('name', "Demo")->pluck('id');
+        // $businesset = Business::whereHas('cat', function ($query) use($cat_id){
+        //     $query->where('cat_id', $cat_id);
+        // })->get();
+        // dd($businesset);
+        $business = Business::latest()->paginate(12);
         $businessCategory = BusinessCategory::all();
         $areas = AreaWeServe::select('area')
         ->distinct()

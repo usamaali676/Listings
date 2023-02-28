@@ -41,6 +41,7 @@ Route::get('category/{slug?}', [DashboardController::class, 'SingleCategory'])->
 Route::get('/show/{slug?}', [BusinessController::class, 'single'])->name('business.single');
 Route::get('/single-state/{name?}', [DashboardController::class, 'cities'])->name('cities');
 Route::get('/test', [DashboardController::class, 'test'])->name('test');
+Route::get('/filter', [DashboardController::class, 'filter'])->name('filter');
 
 Auth::routes([
     'register' => false,

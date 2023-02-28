@@ -46,8 +46,8 @@
                                             @endphp
                                         @foreach ($businessCategory as $item)
                                             <li>
-                                                <input id="a{{$j}}" class="checkbox-custom" name="open" type="checkbox">
-                                                <label for="a{{$j}}" class="checkbox-custom-label">{{$item->name}}</label>
+                                                <input id="category_{{$j}}" class="checkbox-custom" value="{{$item->name}}" name="category" type="checkbox">
+                                                <label for="category_{{$j}}" class="checkbox-custom-label">{{$item->name}}</label>
                                             </li>
                                         @php
                                             $j++;
@@ -66,8 +66,8 @@
                                         @endphp
                                         @foreach ($areas as $item)
                                             <li>
-                                                <input id="b{{$i}}" class="checkbox-custom" name="Kids" type="checkbox" >
-                                                <label for="b{{$i}}" class="checkbox-custom-label">{{$item->area}}</label>
+                                                <input id="area_{{$i}}" class="checkbox-custom" value="{{$item->area}}" name="Kids" type="checkbox" >
+                                                <label for="area_{{$i}}" class="checkbox-custom-label">{{$item->area}}</label>
                                             </li>
                                             @php
                                             $i++;
@@ -150,7 +150,7 @@
                                     </div> --}}
 
                                     <div class="form-group filter_button">
-                                        <button type="submit" class="btn theme-bg text-light rounded full-width">22 Results Show</button>
+                                        <button id="filter" type="submit" class="btn theme-bg text-light rounded full-width">22 Results Show</button>
                                     </div>
 
                                 </div>
@@ -167,7 +167,7 @@
             <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12">
 
                 <!-- row -->
-                <div class="row justify-content-center gx-3">
+                <div class="row justify-content-center gx-3" id="mainajax">
                 @foreach ($business as $item)
                     <!-- Single -->
                     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
@@ -286,4 +286,68 @@
 
 
 
+@endsection
+@section('js')
+<script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function() {
+        $('[id^="category_"]').click(function(){
+            var category = $(this).val();
+
+        $.ajax({
+            url: "{{route('filter')}}",
+            type: "GET",
+            data: {'category': category},
+            success: function(data) {
+                var business = data.business;
+                console.log(business);
+                var html = '';
+                if(business.length > 0){
+                    for(let i = 0; i < business.length; i++){
+                        html += '<div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">\
+                        <div class="Goodup-grid-wrap">\
+                            <div class="Goodup-grid-upper">\
+                                <div class="Goodup-pos ab-left">\
+                                    `@foreach (`'+business[i]+'`->cat as $list)\
+                                    <div class="Goodup-featured-tag">{{$list->name}}</div>\
+                                    @endforeach`\
+                                </div>\
+                                <div class="Goodup-grid-thumb">\
+                                    <a href="{{route('business.single')}}/'+business[i]['slug']+'" class="d-block text-center m-auto"><img src="{{asset('business/feature')}}/'+business[i]['featureImage']+'" class="img-fluid" alt=""></a>\
+                                </div>\
+                            </div>\
+                            <div class="Goodup-grid-fl-wrap">\
+                                <div class="Goodup-caption px-3 py-2">\
+                                    <div class="Goodup-author"><a href="{{route('business.single')}}/'+business[i]['slug']+'"><img src="{{asset('business/logo')}}/'+business[i]['logo']+'" class="img-fluid circle" alt=""></a></div>\
+                                    <h4 class="mb-0 ft-medium medium"><a href="{{route('business.single')}}/'+business[i]['slug']+'" class="text-dark fs-md">'+business[i]['name']+'</a></h4>\
+                                    <div class="Goodup-location"><i class="fas fa-map-marker-alt me-1 theme-cl"></i>'+business[i]['address']+'</div>\
+                                    <div class="Goodup-middle-caption mt-3">\
+                                        <p>{{Str::limit(`'+business[i]['description']+'`, 50)}}</p>\
+                                    </div>\
+                                </div>\
+                                <div class="Goodup-grid-footer py-2 px-3">\
+                                    <div class="Goodup-ft-last">\
+                                        <div class="Goodup-inline">\
+                                            <div class="Goodup-bookmark-btn"><a href="mailto:'+business[i]['email']+'"><i class="lni lni-envelope position-absolute"></i></a></div>\
+                                            <div class="Goodup-bookmark-btn"><a href="tel:'+business[i]['phone']+'"><i class="lni lni-phone position-absolute"></i></a></div>\
+                                        </div>\
+                                    </div>\
+                                </div>\
+                            </div>\
+                        </div>\
+                    </div>'
+                    }
+                }
+                else{
+                    html += '<h2>No Data Found</h2>'
+                }
+                $("#mainajax").html(html);
+            },
+            error: function() {
+                console.log("No Data Available");
+            }
+        });
+    });
+});
+</script>
 @endsection
