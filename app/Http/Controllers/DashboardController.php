@@ -59,7 +59,7 @@ class DashboardController extends Controller
             $cat_id = BusinessCategory::where('name', $request->category)->pluck('id');
             $business = Business::whereHas('cat', function ($query) use($cat_id){
                 $query->where('cat_id', $cat_id);
-            })->get();
+            })->with('cat')->get();
             return response()->json(['business' => $business]);
         }
     }
@@ -74,7 +74,7 @@ class DashboardController extends Controller
         //     $query->where('cat_id', $cat_id);
         // })->get();
         // dd($businesset);
-        $business = Business::latest()->paginate(12);
+        $business = Business::latest()->paginate(6);
         $businessCategory = BusinessCategory::all();
         $areas = AreaWeServe::select('area')
         ->distinct()

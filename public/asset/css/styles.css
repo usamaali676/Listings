@@ -3519,6 +3519,9 @@ button.map-btn {
     top: 10px;
 	z-index:2;
 }
+.hidden.sm\:flex-1.sm\:flex.sm\:items-center.sm\:justify-between{
+    display: none;
+}
 .Goodup-bookmark-btn button , .Goodup-bookmark-btn a {
     width: 32px;
     height: 32px;

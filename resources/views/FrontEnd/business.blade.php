@@ -330,7 +330,15 @@
 						<!-- Sidebar -->
 						<div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
 
+                            <div class="jb-apply-form bg-white rounded py-4 px-4 box-static mb-4">
+								{{-- <h4 class="ft-bold mb-1">Order Food</h4> --}}
 
+
+									<div class="form-group">
+										<a href="tel:{{$business->phone}}" type="button" class="btn btn-md rounded theme-bg text-light ft-medium fs-sm full-width">Call Now</a>
+									</div>
+
+							</div>
 
 							<!-- Business Inof -->
 							<div class="jb-apply-form bg-white rounded py-4 px-4 box-static mb-4">
