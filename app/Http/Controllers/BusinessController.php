@@ -50,12 +50,6 @@ class BusinessController extends Controller
     public function store(Request $request)
     {
 
-        $addresult = Geocoder::geocode('Los Angeles, CA');
-        dd($addresult);
-        $coordinates = $addresult->getCoordinates();
-        $lat = $coordinates->getLatitude();
-        $long = $coordinates->getLongitude();
-        dd($lat , $long);
 
         $request->validate([
             'slug' => 'required|unique:businesses',
@@ -82,11 +76,6 @@ class BusinessController extends Controller
             $business->logo=fts_upload_img($img_file,'logo');
         }
         $business->address = $request->address;
-        $addresult = app('geocoder')->geocode($business->address)->get();
-        $coordinates = $addresult[0]->getCoordinates();
-        $lat = $coordinates->getLatitude();
-        $long = $coordinates->getLongitude();
-        dd($lat , $long);
         $business->description = $request->description;
         $business->phone = $request->phone;
         $business->website = $request->website;
