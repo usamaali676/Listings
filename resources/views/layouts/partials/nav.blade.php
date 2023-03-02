@@ -42,7 +42,7 @@
 
 							<ul class="nav-menu nav-menu-social align-to-right">
 								<li>
-									<a href="#" data-bs-toggle="modal" data-bs-target="#login" class="ft-bold">
+									<a href="{{route('home')}}" class="ft-bold">
 										<i class="fas fa-sign-in-alt me-1 theme-cl"></i>Log In
 									</a>
 								</li>

@@ -171,7 +171,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                   
+
                                 </div>
                             </div>
                             @endforeach
@@ -201,7 +201,7 @@
                         </ul>
                     </div> --}}
 
-                    <div class="col-lg-12 col-md-12 col-sm-12">
+                    {{-- <div class="col-lg-12 col-md-12 col-sm-12">
                         <div class="list-411">
                             <div class="list-412">
                                 <h4 class="ft-bold mb-0">Can't find the business?</h4>
@@ -211,7 +211,7 @@
                                 <a class="btn text-light theme-bg rounded" href="#">Add business</a>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
 
 
