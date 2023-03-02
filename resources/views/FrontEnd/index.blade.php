@@ -67,6 +67,41 @@
 </section>
 <!-- ======================= Home Search End ======================== -->
 
+
+			<!-- =========================== Listing Category ======================= -->
+			<section class="gray middle min">
+				<div class="container">
+
+					<div class="row">
+						<div class="col-xl-12 col-lg-12 col-md-12 col-12">
+							<div class="sec_title position-relative text-center mb-5">
+								<h6 class="text-muted mb-0">Trending Categories</h6>
+								<h2 class="ft-bold">Find the Best Businesses in Town</h2>
+							</div>
+						</div>
+					</div>
+
+					<div class="row align-items-center">
+
+                        @foreach ($states as $item)
+						<div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-6">
+							<div class="Goodup-img-catg-wrap">
+								<div class="Goodup-catg-city">{{$item->cities_count}} Cities</div>
+								<div class="Goodup-img-catg-thumb"><a href="{{route('cities')}}/{{$item->name}}"><img src="{{asset('/business/states')}}/{{$item->image}}" class="img-fluid" alt=""></a></div>
+								<div class="Goodup-img-catg-caption">
+									<h4 class="fs-md mb-0 ft-medium m-catrio">{{$item->name}} </h4>
+									<a href="{{route('cities')}}/{{$item->name}}" class="Goodup-cat-arrow"><i class="lni lni-arrow-right-circle"></i></a>
+								</div>
+							</div>
+						</div>
+                        @endforeach
+					</div>
+
+				</div>
+			</section>
+			<!-- =========================== Listing Category End ===================== -->
+
+
 <!-- ======================= All Types Listing ======================== -->
 <section class="space min">
     <div class="container">
