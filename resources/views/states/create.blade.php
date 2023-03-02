@@ -64,9 +64,13 @@
                                 </div>
                             @endif
                             <div class="row with-forms">
-                                <div class="col-md-12">
+                                <div class="col-md-6">
                                     <h5>State Name <i class="tip" data-tip-content="Name of State"></i></h5>
                                     <input class="search-field" type="text" name="name" />
+                                </div>
+                                <div class="col-md-6">
+                                    <h5>Slug</h5>
+                                    <input class="search-field" type="text" name="slug" />
                                 </div>
 
                             </div>

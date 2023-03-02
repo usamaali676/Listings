@@ -43,10 +43,12 @@ class StateController extends Controller
         $request->validate([
             'name' => 'required | unique:states,name',
             'img' => 'required',
+            'slug' => 'required | unique:states,slug'
         ]);
         State::create([
             'name' => $request->name,
-            'image' => fts_upload_img($request->img, 'states')
+            'image' => fts_upload_img($request->img, 'states'),
+            'slug' => $request->slug,
         ]);
         Alert::success('Success', "State Created successfully");
         return redirect()->route('state.index');
@@ -87,8 +89,10 @@ class StateController extends Controller
 
         $request->validate([
             'name' => 'required | unique:states,name,'.$request->id,
+            'slug' => 'required | unique:states,slug,'.$request->id,
         ]);
         $input['name'] = $request->name;
+        $input['slug'] = $request->slug;
         if($request->hasFile('img'))
         {
 

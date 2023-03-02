@@ -64,10 +64,14 @@
                                 </div>
                             @endif
                             <div class="row with-forms">
-                                <div class="col-md-12">
+                                <div class="col-md-6">
                                     <h5>State Name <i class="tip" data-tip-content="Name of State"></i></h5>
                                     <input type="hidden" name="id" value="{{$sta->id}}">
                                     <input class="search-field" type="text" name="name" value="{{ $sta->name}}" />
+                                </div>
+                                <div class="col-md-6">
+                                    <h5>Slug </h5>
+                                    <input class="search-field" type="text" name="slug" value="{{ $sta->slug}}" />
                                 </div>
 
                             </div>
