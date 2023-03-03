@@ -345,33 +345,103 @@
 								<div class="uli-list-info">
 									<ul>
 
+                                        @if (isset($business->website))
+                                            <li>
+                                                <a href="{{$business->website}}" target="_blank">
+                                                    <div class="list-uiyt">
+                                                        <div class="list-iobk"><i class="fas fa-globe"></i></div>
+                                                        <div class="list-uiyt-capt"><h5>Live Site</h5><p>{{$business->website}}</p></div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        @endif
 										<li>
-											<div class="list-uiyt">
-												<div class="list-iobk"><i class="fas fa-globe"></i></div>
-												<div class="list-uiyt-capt"><h5>Live Site</h5><p>{{$business->website}}</p></div>
-											</div>
+                                            <a href="mailto:{{$business->email}}">
+                                                <div class="list-uiyt">
+                                                    <div class="list-iobk"><i class="fas fa-envelope"></i></div>
+                                                    <div class="list-uiyt-capt"><h5>Drop a Mail</h5><p>{{$business->email}}</p></div>
+                                                </div>
+                                            </a>
 										</li>
 
 										<li>
-											<div class="list-uiyt">
-												<div class="list-iobk"><i class="fas fa-envelope"></i></div>
-												<div class="list-uiyt-capt"><h5>Drop a Mail</h5><p>{{$business->email}}</p></div>
-											</div>
+                                            <a href="tel:{{$business->phone}}">
+                                                <div class="list-uiyt">
+                                                    <div class="list-iobk"><i class="fas fa-phone"></i></div>
+                                                    <div class="list-uiyt-capt"><h5>Call Us</h5><p>{{$business->phone}}</p></div>
+                                                </div>
+                                            </a>
 										</li>
-
+                                        @if (isset($business->sms))
+                                            <li>
+                                                <a href="sms:{{$business->sms}}">
+                                                    <div class="list-uiyt">
+                                                        <div class="list-iobk"><i class="fas fa-sms"></i></div>
+                                                        <div class="list-uiyt-capt"><h5>SMS</h5><p>{{$business->sms}}</p></div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        @endif
+                                        @if (isset($business->gmb))
+                                            <li>
+                                                <a href="{{$business->gmb}}" target="_blank">
+                                                    <div class="list-uiyt">
+                                                        <div class="list-iobk"><i class="fas fa-map-marker-alt"></i></div>
+                                                        <div class="list-uiyt-capt"><h5>Get Directions</h5><p>{{$business->address}}</p></div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        @endif
+                                        @if (isset($business->whatsapp))
 										<li>
+                                            <a href="https://wa.me/{{$business->whatsapp}}"  target="_blank">
 											<div class="list-uiyt">
-												<div class="list-iobk"><i class="fas fa-phone"></i></div>
-												<div class="list-uiyt-capt"><h5>Call Us</h5><p>{{$business->phone}}</p></div>
+												<div class="list-iobk"><i class="fab fa-whatsapp"></i></div>
+												<div class="list-uiyt-capt"><h5>Whatsapp</h5><p>{{$business->whatsapp}}</p></div>
 											</div>
+                                            </a>
 										</li>
-										<li>
-											<div class="list-uiyt">
-												<div class="list-iobk"><i class="fas fa-map-marker-alt"></i></div>
-												<div class="list-uiyt-capt"><h5>Get Directions</h5><p>{{$item->adderess}}</p></div>
-											</div>
-										</li>
-
+                                        @endif
+                                        @if (isset($business->fb))
+                                            <li>
+                                                <a href="{{$business->fb}}" target="_blank">
+                                                    <div class="list-uiyt">
+                                                        <div class="list-iobk"><i class="fab fa-facebook-f"></i></div>
+                                                        <div class="list-uiyt-capt"><h5>Facebook</h5></div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        @endif
+                                        @if (isset($business->inst))
+                                            <li>
+                                                <a href="{{$business->inst}}" target="_blank">
+                                                    <div class="list-uiyt">
+                                                        <div class="list-iobk"><i class="fab fa-instagram"></i></div>
+                                                        <div class="list-uiyt-capt"><h5>Instagram</h5></div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        @endif
+                                        @if (isset($business->youtube))
+                                            <li>
+                                                <a href="{{$business->youtube}}" target="_blank">
+                                                    <div class="list-uiyt">
+                                                        <div class="list-iobk"><i class="fab fa-youtube"></i></div>
+                                                        <div class="list-uiyt-capt"><h5>Youtube</h5></div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        @endif
+                                        @if (isset($business->yelp))
+                                            <li>
+                                                <a href="{{$business->yelp}}" target="_blank">
+                                                    <div class="list-uiyt">
+                                                        <div class="list-iobk"><i class="fab fa-yelp"></i></div>
+                                                        <div class="list-uiyt-capt"><h5>Yelp</h5></div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        @endif
 									</ul>
 								</div>
 							</div>
