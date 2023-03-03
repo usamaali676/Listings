@@ -62,7 +62,7 @@
 
             <!-- Item Wrap Start -->
             <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12">
-
+                <div id="loader" class="lds-dual-ring hidden bg-overlay"></div>
                 <!-- row -->
                 <div class="row justify-content-center gx-3" id="mainajax">
                 @foreach ($business as $item)
@@ -179,6 +179,9 @@
             url: "{{route('filter')}}",
             type: "GET",
             data: {'category': category},
+            beforeSend: function () { // Before we send the request, remove the .hidden class from the spinner and default to inline-block.
+                $('#loader').removeClass('hidden')
+            },
             success: function(data) {
                 var business = data.business;
                 // console.log(business);
@@ -225,6 +228,9 @@
                     html += '<h2>No Data Found</h2>'
                 }
                 $("#mainajax").html(html);
+            },
+            complete: function () { // Set our complete callback, adding the .hidden class and hiding the spinner.
+                $('#loader').addClass('hidden')
             },
             error: function() {
                 console.log("No Data Available");

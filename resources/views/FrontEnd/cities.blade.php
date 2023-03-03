@@ -55,7 +55,9 @@
                     </div>
 
                     <div class="col-xl-12 col-lg-12 col-md-12 col-12">
+                        <div id="loader" class="lds-dual-ring hidden bg-overlay"></div>
                         <div class="d-block grouping-listings" id="mainajax" >
+                            
                             <div class="d-block grouping-listings-title">
                                 <h5 class="ft-medium mb-3">Sponsored Results</h5>
                             </div>
@@ -233,6 +235,9 @@
                 url: "{{route('cities')}}/{{$state->name}}",
                 type: "GET",
                 data:{'city': city},
+                beforeSend: function () { // Before we send the request, remove the .hidden class from the spinner and default to inline-block.
+                $('#loader').removeClass('hidden')
+            },
                 success: function(data){
                    var business = data.business;
                    var html = '';
@@ -276,7 +281,10 @@
 
                    $("#mainajax").html(html);
 
-                }
+                },
+                complete: function () { // Set our complete callback, adding the .hidden class and hiding the spinner.
+                $('#loader').addClass('hidden')
+            },
 
             });
         });

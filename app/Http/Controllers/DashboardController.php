@@ -15,7 +15,7 @@ class DashboardController extends Controller
     public function index()
     {
         $business = Business::all();
-        $bcat = BusinessCategory::withcount('businesses')->latest()->take(12)->get();
+        $bcat = BusinessCategory::withcount('businesses')->orderBy('businesses_count', 'desc')->take(12)->get();
         $famcat = BusinessCategory::withcount('businesses')->orderBy('businesses_count', 'desc')->take(6)->get();
         // dd($bcat);
         $populer_categories = BusinessCategory::withcount('businesses')->get();
@@ -32,9 +32,7 @@ class DashboardController extends Controller
     }
     public function cities(Request $request, $name)
     {
-    //     $id = [ 6, 9];
-    //    $business = Business::whereIn('id', $id)->get();
-    //     dd($business);
+
 
         $state = State::where('name', $name)->first();
         $cities = AreaWeServe::where('state_id', $state->id)

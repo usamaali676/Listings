@@ -1,7 +1,13 @@
 @extends('layouts.master')
+@section('css')
+<script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=640224a6567fbf001a2d5c8f&product=inline-share-buttons&source=platform" async="async"></script>
+<style>
+    #st-1 .st-btn[data-network='sharethis']{
+        background-color: #F41b3b !important;
+    }
+</style>
+@endsection
 @section('front')
-
-
 
 			<!-- ======================= Searchbar Banner ======================== -->
 			<div class="featured-slick">
@@ -394,7 +400,7 @@
                                         @endif
                                         @if (isset($business->whatsapp))
 										<li>
-                                            <a href="https://wa.me/{{$business->whatsapp}}"  target="_blank">
+                                            <a href="https://wa.me/1{{$business->whatsapp}}"  target="_blank">
 											<div class="list-uiyt">
 												<div class="list-iobk"><i class="fab fa-whatsapp"></i></div>
 												<div class="list-uiyt-capt"><h5>Whatsapp</h5><p>{{$business->whatsapp}}</p></div>
@@ -447,7 +453,7 @@
 							</div>
 
 							<div class="row g-3 mb-3">
-								<div class="col-4"><a href="javascript:void(0);" class="adv-btn full-width"><i class="fas fa-share"></i>Share</a></div>
+								<div class="col-4"><div class="sharethis-inline-share-buttons"></div></div>
 							</div>
 
 						</div>
