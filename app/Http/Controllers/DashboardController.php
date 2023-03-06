@@ -17,17 +17,12 @@ class DashboardController extends Controller
         $business = Business::all();
         $bcat = BusinessCategory::withcount('businesses')->orderBy('businesses_count', 'desc')->take(12)->get();
         $famcat = BusinessCategory::withcount('businesses')->orderBy('businesses_count', 'desc')->take(6)->get();
-        // dd($bcat);
         $populer_categories = BusinessCategory::withcount('businesses')->get();
-        // $areas = AreaWeServe::withcount('Areabusinesses')->latest()->limit(4)->get();
         $areas = AreaWeServe::groupBy('area')
         ->selectRaw('count(*) as count, area')->get();
         $states = State::withcount('cities')
         ->get();
-        // dd($states);
 
-        // $arecount = AreaWeServe::withcount('Areabusinesses')->get();
-        // dd($areas);
         return view('FrontEnd.index', compact('business','bcat', 'areas','states','famcat'));
     }
     public function cities(Request $request, $name)
@@ -50,8 +45,7 @@ class DashboardController extends Controller
     }
     public function filter(Request $request)
     {
-        // $test = $request->all();
-        // return response()->json(['test' => $test]);
+
 
         if($request->ajax()){
             $cat_id = BusinessCategory::where('name', $request->category)->pluck('id');
@@ -67,11 +61,6 @@ class DashboardController extends Controller
     }
     public function listing()
     {
-        // $cat_id = BusinessCategory::where('name', "Demo")->pluck('id');
-        // $businesset = Business::whereHas('cat', function ($query) use($cat_id){
-        //     $query->where('cat_id', $cat_id);
-        // })->get();
-        // dd($businesset);
         $business = Business::latest()->paginate(6);
         $businessCategory = BusinessCategory::all();
         $areas = AreaWeServe::select('area')
@@ -80,8 +69,7 @@ class DashboardController extends Controller
         return view('FrontEnd.listing', compact('business', 'businessCategory','areas'));
     }
     public function search(Request $request){
-        // Get the search value from the request
-        // dd($request->location);
+
 
         $search = $request->input('search');
         $catsearch = $request->input('category');
