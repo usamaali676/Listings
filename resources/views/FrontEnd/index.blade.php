@@ -262,7 +262,7 @@
                             <p class="ft-medium">Countries</p>
                         </div>
                         <div class="col-lg-12 col-md-12 col-12 mt-3">
-                            <a href="javascript:void(0);" class="btn btn-md theme-bg-light rounded theme-cl hover-theme">See Details<i class="lni lni-arrow-right-circle ms-2"></i></a>
+                            <a href="{{route('contact')}}" class="btn btn-md theme-bg-light rounded theme-cl hover-theme">See Details<i class="lni lni-arrow-right-circle ms-2"></i></a>
                         </div>
                     </div>
                 </div>
@@ -342,7 +342,7 @@
 <!-- ======================= About Start ============================ -->
 
 <!-- ============================ Pricing Start ==================================== -->
-<section class="space min gray">
+{{-- <section class="space min gray">
     <div class="container">
 
         <div class="row justify-content-center">
@@ -440,7 +440,7 @@
         </div>
 
     </div>
-</section>
+</section> --}}
 <!-- ============================ Pricing End ==================================== -->
 
 
